@@ -3,36 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home — Muhammad Talha</title>
   <meta name="description" content="Official portfolio of Muhammad Talha — SOC Analyst and Cybersecurity Enthusiast." />
-  <meta name="author" content="Muhammad Talha" />
-
-  <title>Muhammad Talha | Portfolio</title>
-
-  <meta property="og:title" content="Muhammad Talha | SOC Analyst Portfolio" />
-  <meta property="og:description" content="Cybersecurity Analyst specializing in SOC operations, ethical hacking, and vulnerability management." />
-  <meta property="og:image" content="profile.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourdomain.com/" />
-
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
-
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self';
-             script-src 'self';
-             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-             font-src 'self' https://fonts.gstatic.com;
-             img-src 'self' data:;">
 </head>
 
 <body>
-  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <canvas id="matrixBackground"></canvas>
 
   <header>
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <nav class="navbar">
       <div class="logo">Muhammad Talha</div>
-      <div class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -43,14 +25,15 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <img src="profile.jpg" alt="Portrait of Muhammad Talha" class="profile-pic" />
-      <h1>Muhammad Talha</h1>
-      <h2>Cybersecurity Analyst | Ethical Hacker | SOC L1</h2>
-      <a href="Muhammad_Talha_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn">View Resume</a>
-    </div>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <img src="images/profile.jpg" alt="Muhammad Talha" class="profile-pic" />
+        <h2>Cybersecurity Analyst | Ethical Hacker | SOC L1</h2>
+        <a href="pdfs/Muhammad Talha Resume.pdf" class="btn" download>Download Resume</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>© 2025 Muhammad Talha — Securing the Digital Future</p>
