@@ -2,15 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — Muhammad Talha</title>
-  <meta name="description" content="Projects by Muhammad Talha — MITRE ATT&CK, bWAPP, DVWA, Juice Shop, Metasploitable.">
+  <meta name="description" content="Projects by Muhammad Talha — MITRE ATT&CK, bWAPP, DVWA, Juice Shop, Metasploitable." />
+  <meta name="author" content="Muhammad Talha">
+  <meta property="og:title" content="Projects — Muhammad Talha" />
+  <meta property="og:description" content="Cybersecurity and vulnerability assessment projects by Muhammad Talha — bWAPP, DVWA, Juice Shop, and more." />
+  <meta property="og:image" content="/profile.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/projects/" />
+
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:;">
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             script-src 'self';
+             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+             font-src 'self' https://fonts.gstatic.com;
+             img-src 'self' data:;">
 </head>
+
 <body>
-  <canvas id="bgCanvas" style="position:fixed;inset:0;z-index:-2;"></canvas>
+  <canvas id="bgCanvas" style="position:fixed;inset:0;z-index:-2;" aria-hidden="true"></canvas>
 
   <aside id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
     <button id="closeSidebarBtn" class="close-btn" aria-label="Close menu">✕</button>
@@ -33,7 +47,7 @@
   </nav>
 
   <main class="site" role="main">
-    <header class="hero" aria-hidden="true">
+    <header class="hero">
       <span class="profile-img"><img src="/profile.jpg" alt="Muhammad Talha"></span>
       <h1 class="title">Muhammad Talha</h1>
       <h3 class="subtitle">SOC Analyst L1</h3>
@@ -41,46 +55,65 @@
 
     <section class="panel">
       <h2>Projects</h2>
+
       <div class="projects-grid">
-        <article class="proj">
-          <strong style="color:var(--primary)">MITRE ATT&amp;CK</strong>
+        <article class="proj" aria-label="MITRE ATT&CK Project">
+          <strong style="color:var(--primary)">MITRE ATT&CK</strong>
           <p>Custom detection rules and playbook.</p>
-          <div class="proj-links"><a href="/images/mitre.jpg" target="_blank" rel="noopener noreferrer">Image</a> | <a href="/pdfs/mitre.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+          <div class="proj-links">
+            <a href="/images/mitre.jpg" target="_blank" rel="noopener noreferrer">Image</a> |
+            <a href="/pdfs/mitre.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+          </div>
         </article>
 
-        <article class="proj">
+        <article class="proj" aria-label="bWAPP Project">
           <strong style="color:var(--primary)">Web Application Vulnerability Assessment (bWAPP)</strong>
           <p>Full scan, exploit demo, remediation steps.</p>
-          <div class="proj-links"><a href="/images/bwapp.jpg" target="_blank" rel="noopener noreferrer">Image</a> | <a href="/pdfs/bwapp.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+          <div class="proj-links">
+            <a href="/images/bwapp.jpg" target="_blank" rel="noopener noreferrer">Image</a> |
+            <a href="/pdfs/bwapp.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+          </div>
         </article>
 
-        <article class="proj">
+        <article class="proj" aria-label="DVWA Project">
           <strong style="color:var(--primary)">Web Application Vulnerability Assessment (DVWA)</strong>
           <p>SQLi, XSS, CSRF, file-upload bypasses.</p>
-          <div class="proj-links"><a href="/images/dvwa.jpg" target="_blank" rel="noopener noreferrer">Image</a> | <a href="/pdfs/dvwa.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+          <div class="proj-links">
+            <a href="/images/dvwa.jpg" target="_blank" rel="noopener noreferrer">Image</a> |
+            <a href="/pdfs/dvwa.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+          </div>
         </article>
 
-        <article class="proj">
+        <article class="proj" aria-label="Docker Cryptography Project">
           <strong style="color:var(--primary)">Cryptography and Secret Retrieval – Docker Lab</strong>
           <p>Container escape, secret extraction.</p>
-          <div class="proj-links"><a href="/images/docker.jpg" target="_blank" rel="noopener noreferrer">Image</a> | <a href="/pdfs/docker.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+          <div class="proj-links">
+            <a href="/images/docker.jpg" target="_blank" rel="noopener noreferrer">Image</a> |
+            <a href="/pdfs/docker.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+          </div>
         </article>
 
-        <article class="proj">
+        <article class="proj" aria-label="OWASP Juice Shop Project">
           <strong style="color:var(--primary)">Advanced Vulnerability Assessment (OWASP Juice Shop)</strong>
           <p>Zero-day style challenges.</p>
-          <div class="proj-links"><a href="/images/juiceshop.jpg" target="_blank" rel="noopener noreferrer">Image</a> | <a href="/pdfs/juiceshop.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+          <div class="proj-links">
+            <a href="/images/juiceshop.jpg" target="_blank" rel="noopener noreferrer">Image</a> |
+            <a href="/pdfs/juiceshop.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+          </div>
         </article>
 
-        <article class="proj">
+        <article class="proj" aria-label="Metasploitable with Nessus Project">
           <strong style="color:var(--primary)">Network Vulnerability Assessment – Metasploitable with Nessus</strong>
           <p>Network discovery, vulnerability prioritization.</p>
-          <div class="proj-links"><a href="/images/metasploitable.jpg" target="_blank" rel="noopener noreferrer">Image</a> | <a href="/pdfs/metasploitable.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+          <div class="proj-links">
+            <a href="/images/metasploitable.jpg" target="_blank" rel="noopener noreferrer">Image</a> |
+            <a href="/pdfs/metasploitable.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <footer>© 2025 Muhammad Talha — Securing the Digital Frontier.</footer>
+    <footer><p>© 2025 Muhammad Talha — Securing the Digital Frontier.</p></footer>
   </main>
 
   <script src="/assets/main.js" defer></script>
