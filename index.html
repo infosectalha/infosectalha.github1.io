@@ -1,48 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Muhammad Talha — Home</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:;">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <!-- canvas background -->
-  <div class="bg-wrap"><canvas id="networkCanvas"></canvas></div>
+  <!-- canvas for animated background -->
+  <canvas id="bgCanvas" style="position:fixed;inset:0;z-index:-2;"></canvas>
 
-  <!-- mobile sidebar -->
-  <div id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
-    <button id="closeSidebarBtn" class="close-btn">Close ✕</button>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="certifications.html">Certifications</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </div>
+  <!-- mobile sidebar (left) -->
+  <aside id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
+    <button id="closeSidebarBtn" class="close-btn" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/certifications/">Certifications</a>
+    <a href="/projects/">Projects</a>
+    <a href="/contact/">Contact</a>
+  </aside>
 
-  <!-- nav -->
-  <nav class="site-nav" role="navigation" aria-label="Main">
+  <!-- top nav (left) -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <button id="openSidebarBtn" class="hamburger" aria-label="Open menu">☰</button>
     <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="certifications.html">Certifications</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/certifications/">Certifications</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/contact/">Contact</a></li>
     </ul>
   </nav>
 
   <main class="site" role="main">
-    <header class="hero">
-      <span class="profile-img"><img src="profile.jpg" alt="Muhammad Talha"></span>
+    <header class="hero" role="banner">
+      <span class="profile-img"><img src="/profile.jpg" alt="Muhammad Talha"></span>
       <h1 class="title">Muhammad Talha</h1>
       <h3 class="subtitle">SOC Analyst L1</h3>
-      <p class="mini muted">Cybersecurity Professional | Pen Tester | Vulnerability Researcher</p>
+      <p class="mini" style="color:var(--muted);margin-top:8px">Cybersecurity Professional • Pen Tester • Vulnerability Researcher</p>
     </header>
 
     <section class="panel">
-      <h2>Summary</h2>
-      <p class="mini">I'm a cybersecurity analyst focused on identifying and mitigating real-world vulnerabilities. I work across penetration testing, vulnerability assessment, and network scanning. My goal is to contribute to SOC operations and offensive security projects with clarity, precision, and documented results.</p>
+      <h2>About (short)</h2>
+      <p class="mini">I identify and mitigate real-world vulnerabilities through penetration testing, vulnerability assessment, and network scanning. I’ve completed hands-on projects using DVWA, bWAPP, OWASP Juice Shop, WebGoat, and Metasploitable. I’m open to freelance and internship opportunities in offensive security and SOC analysis.</p>
     </section>
 
     <section class="panel">
@@ -54,14 +56,11 @@
       </ul>
     </section>
 
-    <section class="panel">
-      <h2>Quick Links</h2>
-      <p class="mini">Explore detailed pages for <a href="projects.html">projects</a>, <a href="certifications.html">certifications</a>, or <a href="contact.html">contact me</a> directly.</p>
-    </section>
-
-    <footer>© 2025 Muhammad Talha — Secure by Design</footer>
+    <footer>
+      © 2025 Muhammad Talha | Crafted with precision and passion for cybersecurity excellence.
+    </footer>
   </main>
 
-  <script src="assets/main.js"></script>
+  <script src="/assets/main.js" defer></script>
 </body>
 </html>
