@@ -1,74 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Muhammad Talha</title>
-  <meta name="description" content="Contact Muhammad Talha — SOC Analyst L1. Available for freelance and internship opportunities.">
-  <meta name="author" content="Muhammad Talha">
-  <meta property="og:title" content="Contact — Muhammad Talha">
-  <meta property="og:description" content="Contact Muhammad Talha — SOC Analyst L1. Available for freelance and internship opportunities.">
-  <meta property="og:image" content="/profile.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/contact/">
-
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
-
-  <meta http-equiv="Content-Security-Policy" 
-        content="default-src 'self';
-                 script-src 'self';
-                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-                 font-src 'self' https://fonts.gstatic.com;
-                 img-src 'self' data:;">
+  <meta name="description" content="Contact Muhammad Talha — SOC Analyst L1 and Cybersecurity Specialist." />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
-  <canvas id="bgCanvas" style="position:fixed;inset:0;z-index:-2;" aria-hidden="true"></canvas>
+  <canvas id="matrixBackground"></canvas>
 
-  <aside id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
-    <button id="closeSidebarBtn" class="close-btn" aria-label="Close menu" aria-controls="mobileSidebar">✕</button>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/certifications/">Certifications</a>
-    <a href="/projects/">Projects</a>
-    <a href="/contact/">Contact</a>
-  </aside>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Muhammad Talha</div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <button id="openSidebarBtn" class="hamburger" aria-label="Open menu" aria-controls="mobileSidebar">☰</button>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/certifications/">Certifications</a></li>
-      <li><a href="/projects/">Projects</a></li>
-      <li><a href="/contact/" class="active">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main class="site" role="main">
-    <header class="hero">
-      <span class="profile-img"><img src="/profile.jpg" alt="Muhammad Talha"></span>
-      <h1 class="title">Muhammad Talha</h1>
-      <h3 class="subtitle">SOC Analyst L1</h3>
-    </header>
-
+  <main>
     <section class="panel">
       <h2>Contact Me</h2>
-      <div class="contact-links">
-        <a href="mailto:infosectalha@gmail.com" aria-label="Email Muhammad Talha">✉ infosectalha@gmail.com</a>
-        <a href="https://www.linkedin.com/in/infosectalha" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile of Muhammad Talha">🔗 LinkedIn</a>
-        <a href="https://github.com/infosectalha" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile of Muhammad Talha">💻 GitHub</a>
-      </div>
-      <p class="contact-note">Available for freelance and internship opportunities in offensive security and SOC analysis.</p>
+      <p class="mini">Feel free to reach out via email: <a href="mailto:talha@example.com">talha@example.com</a> or connect on LinkedIn.</p>
     </section>
-
-    <footer><p>© 2025 Muhammad Talha — Securing the Digital Frontier.</p></footer>
   </main>
 
-  <script src="/assets/main.js" defer></script>
+  <footer>
+    <p>© 2025 Muhammad Talha — Securing the Digital Future</p>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
 </body>
 </html>
