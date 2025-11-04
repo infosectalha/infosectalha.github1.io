@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Muhammad Talha — Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="bg-wrap"><canvas id="networkCanvas"></canvas></div>
+
+  <div id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
+    <button id="closeSidebarBtn" class="close-btn">Close ✕</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <nav class="site-nav" role="navigation" aria-label="Main">
+    <button id="openSidebarBtn" class="hamburger" aria-label="Open menu">☰</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="site">
+    <header class="hero">
+      <span class="profile-img"><img src="profile.jpg" alt="Muhammad Talha"></span>
+      <h1 class="title">Muhammad Talha</h1>
+      <h3 class="subtitle">SOC Analyst L1</h3>
+    </header>
+
+    <section class="panel">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <article class="proj">
+          <strong>MITRE ATT&CK Framework</strong>
+          <p>Custom detection rules and playbook.</p>
+          <div class="proj-links">
+            <a href="images/mitre.jpg" target="_blank">Image</a> |
+            <a href="pdfs/mitre.pdf" target="_blank">Report</a>
+          </div>
+        </article>
+
+        <article class="proj">
+          <strong>Web Application Vulnerability Assessment (bWAPP)</strong>
+          <p>Full scan, exploit demo, remediation steps.</p>
+          <div class="proj-links">
+            <a href="images/bwapp.jpg" target="_blank">Image</a> |
+            <a href="pdfs/bwapp.pdf" target="_blank">Report</a>
+          </div>
+        </article>
+
+        <article class="proj">
+          <strong>Web Application Vulnerability Assessment (DVWA)</strong>
+          <p>SQLi, XSS, CSRF, file-upload bypasses.</p>
+          <div class="proj-links">
+            <a href="images/dvwa.jpg" target="_blank">Image</a> |
+            <a href="pdfs/dvwa.pdf" target="_blank">Report</a>
+          </div>
+        </article>
+
+        <article class="proj">
+          <strong>Cryptography and Secret Retrieval – Docker Lab</strong>
+          <p>Container escape, secret extraction.</p>
+          <div class="proj-links">
+            <a href="images/docker.jpg" target="_blank">Image</a> |
+            <a href="pdfs/docker.pdf" target="_blank">Report</a>
+          </div>
+        </article>
+
+        <article class="proj">
+          <strong>Advanced Vulnerability Assessment (OWASP Juice Shop)</strong>
+          <p>Zero-day style challenges.</p>
+          <div class="proj-links">
+            <a href="images/juiceshop.jpg" target="_blank">Image</a> |
+            <a href="pdfs/juiceshop.pdf" target="_blank">Report</a>
+          </div>
+        </article>
+
+        <article class="proj">
+          <strong>Network Vulnerability Assessment – Metasploitable with Nessus</strong>
+          <p>Network discovery, vulnerability prioritization.</p>
+          <div class="proj-links">
+            <a href="images/metasploitable.jpg" target="_blank">Image</a> |
+            <a href="pdfs/metasploitable.pdf" target="_blank">Report</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>© 2025 Muhammad Talha — Secure by Design</footer>
+  </main>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
