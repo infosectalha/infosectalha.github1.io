@@ -1,77 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Certifications by Muhammad Talha — Udemy, TCM Security, Test.io, UniAthena, SOCRadar, Tech Hierarchy, OPSWAT.">
-  <meta name="author" content="Muhammad Talha">
-  <meta property="og:title" content="Certifications — Muhammad Talha">
-  <meta property="og:description" content="Certifications by Muhammad Talha — SOC Analyst L1">
-  <meta property="og:image" content="/profile.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/certifications/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Certifications — Muhammad Talha</title>
-
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
+  <meta name="description" content="Certifications of Muhammad Talha — SOC Analyst L1." />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
-  <canvas id="bgCanvas" style="position:fixed;inset:0;z-index:-2;" aria-hidden="true"></canvas>
+  <canvas id="matrixBackground"></canvas>
 
-  <aside id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
-    <button id="closeSidebarBtn" class="close-btn" aria-label="Close menu" aria-controls="mobileSidebar">✕</button>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/certifications/">Certifications</a>
-    <a href="/projects/">Projects</a>
-    <a href="/contact/">Contact</a>
-  </aside>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Muhammad Talha</div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="certifications.html" class="active">Certifications</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <button id="openSidebarBtn" class="hamburger" aria-label="Open menu" aria-controls="mobileSidebar">☰</button>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/certifications/" class="active">Certifications</a></li>
-      <li><a href="/projects/">Projects</a></li>
-      <li><a href="/contact/">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main class="site" role="main">
-    <header class="hero">
-      <span class="profile-img"><img src="/profile.jpg" alt="Muhammad Talha"></span>
-      <h1 class="title">Muhammad Talha</h1>
-      <h3 class="subtitle">SOC Analyst L1</h3>
-    </header>
-
+  <main>
     <section class="panel">
-      <h2>Certifications (chronological)</h2>
+      <h2>Certifications</h2>
       <div class="cert-grid">
-        <div class="cert">Identify and Prevent Phishing Attacks – Udemy <a href="/pdfs/phishing-udemy.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">Linux Fundamentals 100 – TCM Security <a href="/pdfs/linux-tcm.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">SOC Analyst Internship – Cyborts <a href="/pdfs/soc-cyborts.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">VAPT – Udemy <a href="/pdfs/vapt-udemy.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">ISCS Candidate <a href="/pdfs/iscs.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">Data Analytics – UniAthena <a href="/pdfs/data-uniathena.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">Dark Web Fundamentals – SOCRadar <a href="/pdfs/darkweb-socradar.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">Mastering Vulnerability Assessment – Tech Hierarchy <a href="/pdfs/vuln-techhierarchy.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">Cybersecurity Badge – Test.io <a href="/pdfs/cyber-testio.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">Python Basics – UniAthena <a href="/pdfs/python-uniathena.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">Google Soft Skills – PAFLA <a href="/pdfs/softskills-pafla.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">Master ChatGPT – UniAthena <a href="/pdfs/chatgpt-uniathena.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">ICIP – OPSWAT <a href="/pdfs/icip-opswat.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">Windows Password Cracking – Udemy <a href="/pdfs/password-udemy.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
+        <div class="cert"><strong>CompTIA Security+</strong><p>Fundamentals of cybersecurity and risk management.</p></div>
+        <div class="cert"><strong>CEH</strong><p>Certified Ethical Hacker – penetration testing and ethical hacking techniques.</p></div>
+        <div class="cert"><strong>MITRE ATT&CK</strong><p>Knowledge of adversary tactics and techniques for SOC operations.</p></div>
       </div>
     </section>
-
-    <footer><p>© 2025 Muhammad Talha — Securing the Digital Frontier.</p></footer>
   </main>
 
-  <script src="/assets/main.js" defer></script>
+  <footer>
+    <p>© 2025 Muhammad Talha — Securing the Digital Future</p>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
 </body>
 </html>
