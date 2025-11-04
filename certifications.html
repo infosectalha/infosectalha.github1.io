@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Certifications — Muhammad Talha</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Certifications by Muhammad Talha — Udemy, TCM Security, Test.io, UniAthena, SOCRadar, Tech Hierarchy, OPSWAT.">
+  <meta name="author" content="Muhammad Talha">
+  <meta property="og:title" content="Certifications — Muhammad Talha">
+  <meta property="og:description" content="Certifications by Muhammad Talha — SOC Analyst L1">
+  <meta property="og:image" content="/profile.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/certifications/">
+  <title>Certifications — Muhammad Talha</title>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:;">
 </head>
+
 <body>
-  <canvas id="bgCanvas" style="position:fixed;inset:0;z-index:-2;"></canvas>
+  <canvas id="bgCanvas" style="position:fixed;inset:0;z-index:-2;" aria-hidden="true"></canvas>
 
   <aside id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
-    <button id="closeSidebarBtn" class="close-btn" aria-label="Close menu">✕</button>
+    <button id="closeSidebarBtn" class="close-btn" aria-label="Close menu" aria-controls="mobileSidebar">✕</button>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/certifications/">Certifications</a>
@@ -22,7 +32,7 @@
   </aside>
 
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <button id="openSidebarBtn" class="hamburger" aria-label="Open menu">☰</button>
+    <button id="openSidebarBtn" class="hamburger" aria-label="Open menu" aria-controls="mobileSidebar">☰</button>
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/about/">About</a></li>
@@ -33,7 +43,7 @@
   </nav>
 
   <main class="site" role="main">
-    <header class="hero" aria-hidden="true">
+    <header class="hero">
       <span class="profile-img"><img src="/profile.jpg" alt="Muhammad Talha"></span>
       <h1 class="title">Muhammad Talha</h1>
       <h3 class="subtitle">SOC Analyst L1</h3>
@@ -54,12 +64,12 @@
         <div class="cert">Python Basics – UniAthena <a href="/pdfs/python-uniathena.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
         <div class="cert">Google Soft Skills – PAFLA <a href="/pdfs/softskills-pafla.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
         <div class="cert">Master ChatGPT – UniAthena <a href="/pdfs/chatgpt-uniathena.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
-        <div class="cert">ICIP – Opswat <a href="/pdfs/icip-opswat.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
+        <div class="cert">ICIP – OPSWAT <a href="/pdfs/icip-opswat.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
         <div class="cert">Windows Password Cracking – Udemy <a href="/pdfs/password-udemy.pdf" target="_blank" rel="noopener noreferrer">(PDF)</a></div>
       </div>
     </section>
 
-    <footer>© 2025 Muhammad Talha — Securing the Digital Frontier.</footer>
+    <footer><p>© 2025 Muhammad Talha — Securing the Digital Frontier.</p></footer>
   </main>
 
   <script src="/assets/main.js" defer></script>
