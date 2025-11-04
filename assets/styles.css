@@ -1,151 +1,211 @@
-/* Muhammad Talha Portfolio Style */
-
-/* Global Styles */
-body {
+/* Global Reset */
+* {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
   background-color: #0d1117;
   color: #e6edf3;
   overflow-x: hidden;
-  line-height: 1.6;
-  scroll-behavior: smooth;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  color: inherit;
 }
 
-a:focus,
-button:focus {
-  outline: 2px dashed #0078ff;
-  outline-offset: 3px;
-}
-
-/* Background Canvas */
-canvas#bgCanvas {
+/* Matrix Background */
+canvas#matrixBackground {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-color: #000;
+  background-color: #0d1117;
 }
 
-/* Header / Navigation */
+/* Header & Nav */
 header {
-  background-color: rgba(13, 17, 23, 0.9);
-  padding: 15px 0;
-  border-bottom: 2px solid #0078ff;
   position: sticky;
   top: 0;
   z-index: 100;
-}
-
-.logo {
-  color: #0078ff;
-  font-size: 26px;
-  font-weight: 700;
-  margin-left: 20px;
-  display: inline-block;
+  background-color: rgba(13,17,23,0.95);
+  border-bottom: 2px solid #00ff99;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 25px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  color: #00ff99;
+  font-weight: 700;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
+  list-style: none;
 }
 
 .nav-links li {
-  margin: 0 12px;
+  margin-left: 20px;
 }
 
 .nav-links a {
+  color: #e6edf3;
   font-weight: 500;
+  transition: 0.3s;
 }
 
-.nav-links a:hover {
-  color: #0078ff;
+.nav-links a:hover, .nav-links a.active {
+  color: #00ff99;
 }
 
 .menu-toggle {
   display: none;
-  font-size: 26px;
+  font-size: 28px;
   cursor: pointer;
-  color: #e6edf3;
 }
 
 /* Hero Section */
 .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 100px 20px;
+  padding: 100px 20px 60px 20px;
 }
 
 .profile-pic {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  border: 3px solid #0078ff;
+  border: 4px solid #00ff99;
+  object-fit: cover;
   margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #a0a0a0;
 }
 
 .btn {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #0078ff;
-  color: white;
+  background-color: #00ff99;
+  color: #0d1117;
   font-weight: 600;
   border-radius: 8px;
-  transition: background-color 0.3s;
+  transition: 0.3s;
 }
 
 .btn:hover {
-  background-color: #005fcc;
+  background-color: #00cc7a;
+}
+
+/* Panels */
+.panel {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.panel h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+  color: #00ff99;
+  margin-bottom: 15px;
+}
+
+.panel p {
+  line-height: 1.6;
+  color: #cfd8dc;
+}
+
+ul {
+  list-style: disc inside;
+  margin-top: 10px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 20px;
+}
+
+.proj {
+  background-color: rgba(13,17,23,0.8);
+  border: 1px solid #00ff99;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.proj:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #00ff99;
+}
+
+.proj-links a {
+  color: #00ff99;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+/* Contact Links */
+.contact-links a {
+  display: block;
+  margin-top: 10px;
+  color: #00ff99;
 }
 
 /* Footer */
 footer {
-  background-color: rgba(13, 17, 23, 0.9);
-  padding: 15px 0;
   text-align: center;
-  border-top: 1px solid #0078ff;
+  padding: 20px;
+  border-top: 1px solid #00ff99;
+  color: #7a7a7a;
   margin-top: 50px;
 }
 
-/* Mobile Menu */
-@media (max-width: 768px) {
+/* Mobile */
+@media(max-width:768px) {
   .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: rgba(13, 17, 23, 0.95);
-    position: fixed;
+    position: absolute;
     top: 60px;
     left: 0;
-    right: 0;
-    height: calc(100vh - 60px);
-    overflow-y: auto;
-    text-align: center;
-    z-index: 99;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(13,17,23,0.95);
+    display: none;
   }
-
   .nav-links.active {
     display: flex;
   }
-
-  .menu-toggle {
-    display: block;
-  }
-
   .nav-links li {
     margin: 15px 0;
+  }
+  .menu-toggle {
+    display: block;
+    color: #e6edf3;
   }
 }
