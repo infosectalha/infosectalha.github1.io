@@ -1,83 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Muhammad Talha</title>
-  <meta name="description" content="About Muhammad Talha — SOC Analyst L1. Experience, tools and projects.">
-  <meta name="author" content="Muhammad Talha">
-  <meta property="og:title" content="About — Muhammad Talha">
-  <meta property="og:description" content="SOC Analyst L1 — Cybersecurity professional passionate about offensive security and SOC analysis.">
-  <meta property="og:image" content="/profile.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/about/">
-
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
-
-  <meta http-equiv="Content-Security-Policy" 
-        content="default-src 'self';
-                 script-src 'self';
-                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-                 font-src 'self' https://fonts.gstatic.com;
-                 img-src 'self' data:;">
+  <meta name="description" content="About Muhammad Talha — SOC Analyst L1 and Cybersecurity Enthusiast." />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
-  <canvas id="bgCanvas" style="position:fixed;inset:0;z-index:-2;" aria-hidden="true"></canvas>
+  <canvas id="matrixBackground"></canvas>
 
-  <aside id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
-    <button id="closeSidebarBtn" class="close-btn" aria-label="Close menu" aria-controls="mobileSidebar">✕</button>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/certifications/">Certifications</a>
-    <a href="/projects/">Projects</a>
-    <a href="/contact/">Contact</a>
-  </aside>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Muhammad Talha</div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <button id="openSidebarBtn" class="hamburger" aria-label="Open menu" aria-controls="mobileSidebar">☰</button>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about/" class="active">About</a></li>
-      <li><a href="/certifications/">Certifications</a></li>
-      <li><a href="/projects/">Projects</a></li>
-      <li><a href="/contact/">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main class="site" role="main">
-    <header class="hero">
-      <span class="profile-img"><img src="/profile.jpg" alt="Muhammad Talha"></span>
-      <h1 class="title">Muhammad Talha</h1>
-      <h3 class="subtitle">SOC Analyst L1</h3>
-    </header>
-
+  <main>
     <section class="panel">
       <h2>About Me</h2>
-      <p class="mini">I'm a cybersecurity analyst focused on identifying and mitigating real-world vulnerabilities. My hands-on experience in penetration testing, vulnerability assessment, and network scanning has helped me complete projects using DVWA, bWAPP, Juice Shop, WebGoat, and Metasploitable. I’m open to freelance or internship opportunities in offensive security and SOC analysis.</p>
+      <p class="mini">I am Muhammad Talha, a passionate SOC Analyst L1 with expertise in offensive security, incident detection, and vulnerability assessment. I love exploring the latest in cybersecurity, from MITRE ATT&CK frameworks to real-world penetration testing labs.</p>
     </section>
-
-    <section class="panel">
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>SOC Analyst Internship</strong> — Cyborts (1 month)</li>
-        <li><strong>Associate Project Manager Intern</strong> — Excelerate (1 month)</li>
-        <li><strong>Receptionist Internship</strong> — American Lyceum School (1 month)</li>
-      </ul>
-    </section>
-
-    <section class="panel">
-      <h2>Tools & Technologies</h2>
-      <p class="mini">Kali Linux, Ubuntu, Docker, Nessus, Metasploit, Burp Suite, bWAPP, DVWA, Nmap, Nikto, Gobuster, Wazuh, Python scripting, MITRE ATT&CK mapping.</p>
-    </section>
-
-    <footer><p>© 2025 Muhammad Talha — Securing the Digital Frontier.</p></footer>
   </main>
 
-  <script src="/assets/main.js" defer></script>
+  <footer>
+    <p>© 2025 Muhammad Talha — Securing the Digital Future</p>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
 </body>
 </html>
