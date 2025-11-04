@@ -4,15 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Muhammad Talha — Home</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:;">
+  <meta name="description" content="Muhammad Talha — SOC Analyst L1. Portfolio: penetration testing, vulnerability assessment, network scanning.">
+  <meta property="og:title" content="Muhammad Talha — SOC Analyst L1">
+  <meta property="og:description" content="SOC Analyst focused on penetration testing, VAPT, and SOC operations.">
+  <meta property="og:image" content="/profile.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <!-- canvas for animated background -->
   <canvas id="bgCanvas" style="position:fixed;inset:0;z-index:-2;"></canvas>
 
-  <!-- mobile sidebar (left) -->
+  <!-- mobile sidebar -->
   <aside id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
     <button id="closeSidebarBtn" class="close-btn" aria-label="Close menu">✕</button>
     <a href="/">Home</a>
@@ -22,7 +24,7 @@
     <a href="/contact/">Contact</a>
   </aside>
 
-  <!-- top nav (left) -->
+  <!-- top nav -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <button id="openSidebarBtn" class="hamburger" aria-label="Open menu">☰</button>
     <ul>
@@ -43,8 +45,11 @@
     </header>
 
     <section class="panel">
-      <h2>About (short)</h2>
-      <p class="mini">I identify and mitigate real-world vulnerabilities through penetration testing, vulnerability assessment, and network scanning. I’ve completed hands-on projects using DVWA, bWAPP, OWASP Juice Shop, WebGoat, and Metasploitable. I’m open to freelance and internship opportunities in offensive security and SOC analysis.</p>
+      <h2>Professional Profile</h2>
+      <p class="mini">I identify and mitigate real-world vulnerabilities through penetration testing, vulnerability assessment, and network scanning. I’ve completed projects using DVWA, bWAPP, OWASP Juice Shop, WebGoat, and Metasploitable. I’m open to freelance and internship opportunities in offensive security and SOC analysis.</p>
+      <div style="margin-top:12px">
+        <a href="/Muhammad_Talha_Profile.pdf" download="Muhammad_Talha_Profile.pdf" style="display:inline-block;padding:10px 14px;border-radius:8px;background:var(--primary);color:#001; font-weight:700;text-decoration:none">Download Professional Profile</a>
+      </div>
     </section>
 
     <section class="panel">
@@ -56,9 +61,7 @@
       </ul>
     </section>
 
-    <footer>
-      © 2025 Muhammad Talha | Crafted with precision and passion for cybersecurity excellence.
-    </footer>
+    <footer>© 2025 Muhammad Talha — Securing the Digital Frontier.</footer>
   </main>
 
   <script src="/assets/main.js" defer></script>
