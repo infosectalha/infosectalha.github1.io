@@ -1,319 +1,420 @@
-<!DOCTYPE html>
+<!-- Paste this entire file as index.html in your repo root -->
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Talha | SOC Analyst L1</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Muhammad Talha | SOC Analyst L1</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous"/>
+<style>
+  :root{
+    --bg:#050505;
+    --panel:#0d0f11;
+    --muted:#9fb0c8;
+    --primary:#1e90ff; /* blue for headings */
+    --accent:#00ff7f;  /* subtle accent if needed */
+    --card-bg:rgba(255,255,255,0.02);
+    --glass-border:rgba(255,255,255,0.03);
+    --glass-shadow:rgba(30,144,255,0.06);
+    --max-width:1180px;
+  }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  /* ---------------- base ---------------- */
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:"Roboto Mono", monospace;
+    background:var(--bg);
+    color:#e7f2ff;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+  }
+  a{color:var(--primary); text-decoration:none}
+  a:hover{opacity:.92;text-decoration:underline}
 
-  <style>
-    :root{
-      --bg:#0d0d0d;
-      --primary:#00ff41;
-      --accent:#39ff14;
-      --text:#e0ffcc;
-      --card-bg:rgba(20,30,20,0.45);
-      --border:rgba(0,255,65,0.2);
-      --shadow:rgba(0,255,65,0.25);
-    }
-    ,::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{
-      font-family:'Roboto Mono',monospace;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.7;
-      overflow-x:hidden;
-    }
-    h1,h2,h3{color:var(--primary);text-transform:uppercase;letter-spacing:1.5px;}
-    a{color:var(--accent);text-decoration:none;transition:.3s;}
-    a:hover{color:#fff;text-shadow:0 0 8px var(--primary);}
+  /* ---------------- animated network background (CSS canvas fallback) ---------------- */
+  .bg-wrap{position:fixed;inset:0;z-index:-2;pointer-events:none}
+  canvas#net{display:block;width:100%;height:100%}
 
-    /* ---------- NAV ---------- */
-    nav{
-      position:fixed;top:0;left:0;width:100%;
-      background:rgba(5,5,5,.92);backdrop-filter:blur(8px);
-      z-index:1000;padding:1rem 0;
-      box-shadow:0 2px 10px var(--shadow);
-    }
-    nav ul{
-      display:flex;justify-content:center;gap:2rem;list-style:none;
-      flex-wrap:wrap;
-    }
-    nav a{
-      font-weight:500;position:relative;padding:.4rem .6rem;
-      font-size:1rem;
-    }
-    nav a::after{
-      content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
-      background:var(--primary);transition:width .3s;
-    }
-    nav a:hover::after,
-    nav a.active::after{width:100%;}
+  /* subtle noise overlay for depth */
+  .noise {
+    position:fixed;inset:0;z-index:-1;opacity:0.04;
+    background-image:radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size:3px 3px;
+    pointer-events:none;
+  }
 
-    /* ---------- BACKGROUND ---------- */
-    .bg-anim{
-      position:fixed;inset:0;overflow:hidden;z-index:-1;
-      background:linear-gradient(180deg,#0a0a0a 0%,#000 100%);
-    }
-    .scan-line{
-      position:absolute;width:100%;height:2px;
-      background:linear-gradient(90deg,transparent,var(--primary),transparent);
-      opacity:.6;animation:scan 6s linear infinite;
-    }
-    @keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(120vh)}}
-    .particle{
-      position:absolute;width:4px;height:4px;
-      background:var(--primary);border-radius:50%;
-      opacity:.7;box-shadow:0 0 8px var(--shadow);
-      animation:particle 18s linear infinite;
-    }
-    @keyframes particle{
-      0%{transform:translateY(-10vh) scale(.5);opacity:.7}
-      50%{opacity:1}
-      100%{transform:translateY(110vh) scale(.3);opacity:.2}
-    }
+  /* ---------------- site container ---------------- */
+  .site {
+    max-width:var(--max-width);
+    margin:40px auto;
+    padding:22px;
+    position:relative;
+    z-index:2;
+  }
 
-    /* ---------- LAYOUT ---------- */
-    .container{
-      max-width:1180px;margin:0 auto;
-      padding:130px 1.5rem 3rem;
-    }
-    section{
-      display:none;opacity:0;transition:opacity .6s ease;
-    }
-    section.active{
-      display:block;opacity:1;animation:fadeIn .8s forwards;
-    }
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(20px)}
-      to{opacity:1;transform:none}
-    }
+  /* nav */
+  nav {
+    position:fixed;top:12px;left:50%;transform:translateX(-50%);
+    background:linear-gradient(180deg, rgba(15,15,18,0.72), rgba(10,10,12,0.6));
+    padding:8px 14px;border-radius:12px;border:1px solid var(--glass-border);
+    box-shadow:0 6px 22px var(--glass-shadow);backdrop-filter: blur(6px);
+    z-index:999;
+  }
+  nav ul{display:flex;gap:8px;align-items:center;list-style:none;margin:0;padding:0}
+  nav a{
+    display:inline-block;padding:8px 12px;border-radius:8px;color:var(--muted);
+    font-weight:600;font-size:0.95rem;
+  }
+  nav a.active, nav a:focus{color:#fff;background:linear-gradient(90deg, rgba(30,144,255,0.12), rgba(30,144,255,0.06))}
+  nav a:focus{outline:2px solid rgba(30,144,255,0.12);outline-offset:2px}
 
-    .card{
-      background:var(--card-bg);
-      border:1px solid var(--border);
-      border-radius:8px;
-      padding:1.5rem;
-      margin-bottom:1.5rem;
-      box-shadow:0 4px 15px var(--shadow);
-      transition:transform .3s,box-shadow .3s;
-    }
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 8px 25px var(--shadow);
-    }
+  /* header area */
+  header.hero {display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;margin-top:80px}
+  .profile-img{
+    width:170px;height:170px;border-radius:50%;overflow:hidden;border:3px solid var(--primary);
+    box-shadow:0 6px 30px rgba(30,144,255,0.12), 0 0 20px rgba(30,144,255,0.06);
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .profile-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .profile-img:hover{transform:translateY(-4px) scale(1.02)}
 
-    .profile-img{
-      width:180px;height:180px;border-radius:50%;
-      border:4px solid var(--primary);
-      object-fit:cover;margin-bottom:1.5rem;
-      box-shadow:0 0 20px var(--shadow);
-      transition:.4s;
-    }
-    .profile-img:hover{
-      transform:scale(1.07) rotate(4deg);
-    }
+  h1{font-family:"Orbitron", sans-serif; letter-spacing:1px; color:var(--primary); margin:0;font-size:2.2rem}
+  h3.subtitle{color:var(--muted); margin:0;font-weight:500}
 
-    /* ---------- CERTS & PROJECTS ---------- */
-    #certifications ul,
-    #projects ul{
-      display:grid;gap:1.5rem;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    }
-    #certifications li{
-      position:relative;padding-left:2rem;
-    }
-    #certifications li::before{
-      content:"check";font-family:"Font Awesome 6 Free";font-weight:900;
-      color:var(--accent);position:absolute;left:0;top:.2rem;
-    }
+  /* panels */
+  .panel{
+    margin:26px 0;padding:18px;border-radius:10px;background:var(--card-bg);
+    border:1px solid var(--glass-border);box-shadow:0 10px 30px var(--glass-shadow);
+  }
+  .panel h2{color:var(--primary);margin:0 0 10px 0;padding-bottom:6px;border-bottom:2px solid rgba(30,144,255,0.08);display:inline-block}
 
-    /* ---------- CONTACT ---------- */
-    #contact .contact-links{
-      text-align:center;font-size:1.2rem;
-    }
-    #contact .contact-links a{
-      margin:0 1rem;display:inline-flex;align-items:center;gap:.6rem;
-    }
+  p, li {color:#dbeefe}
+  ul{list-style:none;padding-left:0;margin:10px 0;display:grid;gap:12px}
+  .mini {font-size:0.95rem;color:var(--muted)}
 
-    footer{
-      text-align:center;padding:2rem 0;font-size:.9rem;
-      color:#555;border-top:1px solid var(--border);
-    }
+  /* projects grid */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  .proj {
+    background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.008));
+    padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)
+  }
+  .proj strong{display:block;color:#eaf7ff;margin-bottom:6px}
+  .proj p{margin:0 0 8px 0;font-size:0.95rem;color:#cfeaff}
 
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width:768px){
-      nav ul{flex-direction:column;gap:1rem;align-items:center;}
-      .container{padding:140px 1rem 2rem;}
-      .profile-img{width:140px;height:140px;}
-    }
-    @media (max-width:480px){
-      nav a{font-size:.95rem;}
-    }
-  </style>
+  .proj-links a{font-weight:600;color:var(--primary);margin-right:8px}
+
+  /* cards for certs */
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+  .cert {padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
+  .cert a{font-weight:600;color:var(--primary)}
+
+  /* contact */
+  .contact-links{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center}
+  .contact-links a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));border:1px solid rgba(255,255,255,0.02)}
+  .contact-links a i{font-size:1.05rem;color:var(--primary)}
+
+  /* footer */
+  footer{margin:34px 0 90px;text-align:center;color:var(--muted);font-size:0.95rem}
+
+  /* small screens */
+  @media (max-width:720px){
+    .site{padding:0 14px}
+    h1{font-size:1.6rem}
+    .profile-img{width:130px;height:130px}
+    nav{left:10px;transform:none;right:auto;padding:6px 10px}
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
+  <!-- background canvas -->
+  <div class="bg-wrap">
+    <canvas id="net"></canvas>
+    <div class="noise" aria-hidden="true"></div>
+  </div>
+
+  <!-- nav (tabs) -->
+  <nav role="navigation" aria-label="Main navigation">
     <ul>
-      <li><a href="#home" class="tab-link active">Home</a></li>
-      <li><a href="#about" class="tab-link">About</a></li>
-      <li><a href="#certifications" class="tab-link">Certifications</a></li>
-      <li><a href="#projects" class="tab-link">Projects</a></li>
-      <li><a href="#contact" class="tab-link">Contact</a></li>
+      <li><a href="#home" class="tab-link active" data-target="home">Home</a></li>
+      <li><a href="#about" class="tab-link" data-target="about">About</a></li>
+      <li><a href="#certifications" class="tab-link" data-target="certifications">Certifications</a></li>
+      <li><a href="#projects" class="tab-link" data-target="projects">Projects</a></li>
+      <li><a href="#contact" class="tab-link" data-target="contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- BACKGROUND -->
-  <div class="bg-anim" id="bgAnim"></div>
-
-  <div class="container">
-
+  <main class="site" id="main">
     <!-- HOME -->
-    <section id="home" class="active">
-      <div style="text-align:center;">
-        <img src="profile.jpg" alt="Muhammad Talha" class="profile-img" />
-        <h1>Muhammad Talha</h1>
-        <h3>SOC Analyst L1</h3>
-        <p>Cybersecurity Professional | Pen Tester | Vulnerability Researcher</p>
-      </div>
+    <section id="home" class="panel" aria-labelledby="home-heading">
+      <header class="hero" role="banner">
+        <span class="profile-img" aria-hidden="false">
+          <img src="profile.jpg" alt="Muhammad Talha" />
+        </span>
+        <h1 id="home-heading">Muhammad Talha</h1>
+        <h3 class="subtitle">SOC Analyst L1</h3>
+        <p class="mini">Cybersecurity Professional | Pen Tester | Vulnerability Researcher</p>
+      </header>
     </section>
 
     <!-- ABOUT -->
-    <section id="about">
-      <div class="card">
-        <h2>About Me</h2>
-        <p>I'm a cybersecurity analyst focused on identifying and mitigating real-world vulnerabilities. My hands-on experience in penetration testing, vulnerability assessment, and network scanning has helped me complete projects using DVWA, bWAPP, Juice Shop, WebGoat, and Metasploitable. I’m open to freelance or internship opportunities in offensive security and SOC analysis.</p>
-        <div style="margin-top:1rem;">
-          <img src="https://img.shields.io/badge/Cybersecurity-Expert-00ff41?style=for-the-badge" alt="Cybersecurity">
-          <img src="https://img.shields.io/badge/Experience-5%2B%20Years-00ff41?style=for-the-badge" alt="Experience">
-        </div>
+    <section id="about" class="panel" hidden aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p class="mini">I'm a cybersecurity analyst focused on identifying and mitigating real-world vulnerabilities. My hands-on experience in penetration testing, vulnerability assessment, and network scanning has helped me complete projects using DVWA, bWAPP, Juice Shop, WebGoat, and Metasploitable. I’m open to freelance or internship opportunities in offensive security and SOC analysis.</p>
+
+      <div style="margin-top:14px;">
+        <img src="https://img.shields.io/badge/Cybersecurity-Expert-00ff41?style=for-the-badge" alt="Cybersecurity" style="height:28px;margin-right:8px">
+        <img src="https://img.shields.io/badge/Portfolio-GitHub%20Pages-1f8af3?style=for-the-badge" alt="Site" style="height:28px">
       </div>
     </section>
 
     <!-- CERTIFICATIONS -->
-    <section id="certifications">
-      <h2 style="text-align:center;margin-bottom:1.5rem;">Certifications</h2>
-      <ul>
-        <li>Identify and Prevent Phishing Attacks – Udemy <a href="pdfs/phishing-udemy.pdf" target="_blank">(PDF)</a></li>
-        <li>Linux Fundamentals 100 – TCM Security <a href="pdfs/linux-tcm.pdf" target="_blank">(PDF)</a></li>
-        <li>SOC Analyst Internship – Cyborts <a href="pdfs/soc-cyborts.pdf" target="_blank">(PDF)</a></li>
-        <li>VAPT – Udemy <a href="pdfs/vapt-udemy.pdf" target="_blank">(PDF)</a></li>
-        <li>ISCS Candidate <a href="pdfs/iscs.pdf" target="_blank">(PDF)</a></li>
-        <li>Data Analytics – UniAthena <a href="pdfs/data-uniathena.pdf" target="_blank">(PDF)</a></li>
-        <li>Dark Web Fundamentals – SOCRadar <a href="pdfs/darkweb-socradar.pdf" target="_blank">(PDF)</a></li>
-        <li>Mastering Vulnerability Assessment – Tech Hierarchy <a href="pdfs/vuln-techhierarchy.pdf" target="_blank">(PDF)</a></li>
-        <li>Cybersecurity Badge – Test.io <a href="pdfs/cyber-testio.pdf" target="_blank">(PDF)</a></li>
-        <li>Python Basics – UniAthena <a href="pdfs/python-uniathena.pdf" target="_blank">(PDF)</a></li>
-        <li>Google Soft Skills – PAFLA <a href="pdfs/softskills-pafla.pdf" target="_blank">(PDF)</a></li>
-        <li>Master ChatGPT – UniAthena <a href="pdfs/chatgpt-uniathena.pdf" target="_blank">(PDF)</a></li>
-        <li>ICIP – Opswat <a href="pdfs/icip-opswat.pdf" target="_blank">(PDF)</a></li>
-        <li>Windows Password Cracking – Udemy <a href="pdfs/password-udemy.pdf" target="_blank">(PDF)</a></li>
-      </ul>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2 style="text-align:center;margin-bottom:1.5rem;">Projects</h2>
-      <ul>
-        <li class="card">
-          <strong>MITRE ATT&amp;CK Framework</strong>
-          <p>Custom detection rules and playbook.</p>
-          <a href="images/mitre.jpg" target="_blank">Image</a> |
-          <a href="pdfs/mitre.pdf" target="_blank">Report</a>
-        </li>
-        <li class="card">
-          <strong>bWAPP Vulnerability Assessment</strong>
-          <p>Full scan, exploit demo, remediation steps.</p>
-          <a href="images/bwapp.jpg" target="_blank">Image</a> |
-          <a href="pdfs/bwapp.pdf" target="_blank">Report</a>
-        </li>
-        <li class="card">
-          <strong>DVWA Penetration Test</strong>
-          <p>SQLi, XSS, CSRF, file-upload bypasses.</p>
-          <a href="images/dvwa.jpg" target="_blank">Image</a> |
-          <a href="pdfs/dvwa.pdf" target="_blank">Report</a>
-        </li>
-        <li class="card">
-          <strong>Cryptography &amp; Secret Retrieval – Docker Lab</strong>
-          <p>Container escape, secret extraction.</p>
-          <a href="images/docker.jpg" target="_blank">Image</a> |
-          <a href="pdfs/docker.pdf" target="_blank">Report</a>
-        </li>
-        <li class="card">
-          <strong>OWASP Juice Shop Advanced Assessment</strong>
-          <p>Zero-day style challenges.</p>
-          <a href="images/juiceshop.jpg" target="_blank">Image</a> |
-          <a href="pdfs/juiceshop.pdf" target="_blank">Report</a>
-        </li>
-        <li class="card">
-          <strong>Metasploitable + Nessus Network Scan</strong>
-          <p>Network discovery, vulnerability prioritization.</p>
-          <a href="images/metasploitable.jpg" target="_blank">Image</a> |
-          <a href="pdfs/metasploitable.pdf" target="_blank">Report</a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2 style="text-align:center;margin-bottom:1.5rem;">Contact Me</h2>
-      <div class="contact-links">
-        <a href="mailto:infosectalha@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-        <a href="https://www.linkedin.com/in/infosectalha" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/infosectalha" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <section id="certifications" class="panel" hidden aria-labelledby="certs-heading">
+      <h2 id="certs-heading">Certifications</h2>
+      <div class="cert-grid" style="margin-top:12px">
+        <!-- keep content exactly as you provided (order and names preserved) -->
+        <div class="cert">Identify and Prevent Phishing Attacks – Udemy <a href="pdfs/phishing-udemy.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">Linux Fundamentals 100 – TCM Security <a href="pdfs/linux-tcm.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">SOC Analyst Internship – Cyborts <a href="pdfs/soc-cyborts.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">VAPT – Udemy <a href="pdfs/vapt-udemy.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">ISCS Candidate <a href="pdfs/iscs.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">Data Analytics – UniAthena <a href="pdfs/data-uniathena.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">Dark Web Fundamentals – SOCRadar <a href="pdfs/darkweb-socradar.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">Mastering Vulnerability Assessment – Tech Hierarchy <a href="pdfs/vuln-techhierarchy.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">Cybersecurity Badge – Test.io <a href="pdfs/cyber-testio.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">Python Basics – UniAthena <a href="pdfs/python-uniathena.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">Google Soft Skills – PAFLA <a href="pdfs/softskills-pafla.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">Master ChatGPT – UniAthena <a href="pdfs/chatgpt-uniathena.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">ICIP – Opswat <a href="pdfs/icip-opswat.pdf" target="_blank">(PDF)</a></div>
+        <div class="cert">Windows Password Cracking – Udemy <a href="pdfs/password-udemy.pdf" target="_blank">(PDF)</a></div>
       </div>
     </section>
 
-  </div>
+    <!-- PROJECTS -->
+    <section id="projects" class="panel" hidden aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <div class="projects-grid" style="margin-top:12px">
+        <!-- exact project names & links preserved -->
+        <article class="proj">
+          <strong>MITRE ATT&amp;CK Framework</strong>
+          <p>Custom detection rules and playbook.</p>
+          <div class="proj-links">
+            <a href="images/mitre.jpg" target="_blank">Image</a> |
+            <a href="pdfs/mitre.pdf" target="_blank">Report</a>
+          </div>
+        </article>
 
-  <footer>
-    © 2025 Muhammad Talha – Secure by Design
-  </footer>
+        <article class="proj">
+          <strong>bWAPP Vulnerability Assessment</strong>
+          <p>Full scan, exploit demo, remediation steps.</p>
+          <div class="proj-links">
+            <a href="images/bwapp.jpg" target="_blank">Image</a> |
+            <a href="pdfs/bwapp.pdf" target="_blank">Report</a>
+          </div>
+        </article>
 
-  <!-- FIXED JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('.tab-link');
-      const sections = document.querySelectorAll('section');
+        <article class="proj">
+          <strong>DVWA Penetration Test</strong>
+          <p>SQLi, XSS, CSRF, file-upload bypasses.</p>
+          <div class="proj-links">
+            <a href="images/dvwa.jpg" target="_blank">Image</a> |
+            <a href="pdfs/dvwa.pdf" target="_blank">Report</a>
+          </div>
+        </article>
 
-      links.forEach(link => {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          const targetId = link.getAttribute('href').substring(1); // "#home" → "home"
+        <article class="proj">
+          <strong>Cryptography &amp; Secret Retrieval – Docker Lab</strong>
+          <p>Container escape, secret extraction.</p>
+          <div class="proj-links">
+            <a href="images/docker.jpg" target="_blank">Image</a> |
+            <a href="pdfs/docker.pdf" target="_blank">Report</a>
+          </div>
+        </article>
 
-          // Update nav
-          links.forEach(l => l.classList.remove('active'));
-          link.classList.add('active');
+        <article class="proj">
+          <strong>OWASP Juice Shop Advanced Assessment</strong>
+          <p>Zero-day style challenges.</p>
+          <div class="proj-links">
+            <a href="images/juiceshop.jpg" target="_blank">Image</a> |
+            <a href="pdfs/juiceshop.pdf" target="_blank">Report</a>
+          </div>
+        </article>
 
-          // Show section
-          sections.forEach(s => s.classList.remove('active'));
-          const target = document.getElementById(targetId);
-          if (target) target.classList.add('active');
-        });
-      });
+        <article class="proj">
+          <strong>Metasploitable + Nessus Network Scan</strong>
+          <p>Network discovery, vulnerability prioritization.</p>
+          <div class="proj-links">
+            <a href="images/metasploitable.jpg" target="_blank">Image</a> |
+            <a href="pdfs/metasploitable.pdf" target="_blank">Report</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      // Background particles & scan lines
-      const bg = document.getElementById('bgAnim');
-      for (let i = 0; i < 4; i++) {
-        const line = document.createElement('div');
-        line.className = 'scan-line';
-        line.style.animationDelay = ${i * 1.5}s;
-        bg.appendChild(line);
-      }
-      for (let i = 0; i < 45; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.left = ${Math.random() * 100}%;
-        p.style.animationDelay = ${Math.random() * 18}s;
-        p.style.animationDuration = ${15 + Math.random() * 10}s;
-        bg.appendChild(p);
-      }
+    <!-- CONTACT -->
+    <section id="contact" class="panel" hidden aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Me</h2>
+      <div class="contact-links" style="margin-top:12px;">
+        <a href="mailto:infosectalha@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/infosectalha" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/infosectalha" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </section>
+
+    <footer>© 2025 Muhammad Talha – Secure by Design</footer>
+  </main>
+
+<script>
+/* ======================= Tabs (accessible) ======================= */
+(function(){
+  const links = document.querySelectorAll('.tab-link');
+  const sections = document.querySelectorAll('main section');
+
+  function activate(targetId, pushHistory = true){
+    sections.forEach(s => {
+      if (s.id === targetId) { s.hidden = false; s.classList.add('active'); s.scrollIntoView({behavior:'smooth',block:'start'}); }
+      else { s.hidden = true; s.classList.remove('active'); }
     });
-  </script>
+    links.forEach(a => a.classList.toggle('active', a.dataset.target === targetId));
+    if (pushHistory) history.replaceState(null,'', '#'+targetId);
+  }
+
+  links.forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      activate(a.dataset.target);
+    });
+    a.addEventListener('keydown', (e)=>{
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); a.click(); }
+    });
+  });
+
+  // load from hash or default
+  const start = location.hash ? location.hash.substring(1) : 'home';
+  activate(start, false);
+})();
+
+/* ======================= Network background (canvas) ======================= */
+/* Lightweight particle+line network - tuned for performance */
+(function(){
+  const canvas = document.getElementById('net');
+  const ctx = canvas.getContext('2d', { alpha: true });
+  let w = canvas.width = window.innerWidth;
+  let h = canvas.height = window.innerHeight;
+
+  const DPR = Math.max(1, window.devicePixelRatio || 1);
+  canvas.width = w * DPR;
+  canvas.height = h * DPR;
+  canvas.style.width = w + 'px';
+  canvas.style.height = h + 'px';
+  ctx.scale(DPR, DPR);
+
+  let nodes = [];
+  const NODE_TARGET = Math.min(60, Math.floor((w*h)/150000)); // adaptive
+  const MAX_DIST = 160;
+
+  function rand(min,max){return Math.random()*(max-min)+min}
+
+  function reset(){
+    w = canvas.width = window.innerWidth * DPR;
+    h = canvas.height = window.innerHeight * DPR;
+    canvas.style.width = (window.innerWidth) + 'px';
+    canvas.style.height = (window.innerHeight) + 'px';
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.scale(DPR, DPR);
+    nodes = [];
+    const N = Math.max(20, NODE_TARGET);
+    for(let i=0;i<N;i++){
+      nodes.push({
+        x: Math.random()*window.innerWidth,
+        y: Math.random()*window.innerHeight,
+        vx: rand(-0.25,0.25),
+        vy: rand(-0.25,0.25),
+        r: rand(1.2,2.8),
+        pulse: Math.random()*Math.PI*2,
+        hue: 200 + Math.random()*40
+      });
+    }
+  }
+  reset();
+
+  function step(){
+    ctx.clearRect(0,0,window.innerWidth, window.innerHeight);
+
+    // subtle dim overlay
+    ctx.fillStyle = 'rgba(3,6,10,0.45)';
+    ctx.fillRect(0,0,window.innerWidth, window.innerHeight);
+
+    // draw links
+    for(let i=0;i<nodes.length;i++){
+      const a = nodes[i];
+      for(let j=i+1;j<nodes.length;j++){
+        const b = nodes[j];
+        const dx = a.x-b.x, dy = a.y-b.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < MAX_DIST){
+          const alpha = 0.12 * (1 - (dist / MAX_DIST));
+          ctx.strokeStyle = rgba(30,144,255,${alpha});
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // draw nodes
+    for(let i=0;i<nodes.length;i++){
+      const n = nodes[i];
+      // pulse effect
+      const r = n.r + Math.sin((Date.now()*0.003)+n.pulse)*0.6;
+      const g = ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,12);
+      g.addColorStop(0, 'rgba(30,144,255,0.95)');
+      g.addColorStop(0.3, 'rgba(30,144,255,0.28)');
+      g.addColorStop(1, 'rgba(30,144,255,0.02)');
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, Math.abs(r), 0, Math.PI*2);
+      ctx.fill();
+
+      // motion
+      n.x += n.vx + Math.sin(Date.now()*0.0008 + i)*0.1;
+      n.y += n.vy + Math.cos(Date.now()*0.0009 + i)*0.1;
+
+      // bounds
+      if (n.x < -20) n.x = window.innerWidth + 20;
+      if (n.x > window.innerWidth + 20) n.x = -20;
+      if (n.y < -20) n.y = window.innerHeight + 20;
+      if (n.y > window.innerHeight + 20) n.y = -20;
+    }
+
+    requestAnimationFrame(step);
+  }
+  step();
+
+  let resizeTO;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTO);
+    resizeTO = setTimeout(() => reset(), 220);
+  });
+})();
+
+/* ======================= Keyboard shortcut: left/right to switch tabs ======================= */
+(function(){
+  window.addEventListener('keydown', (e)=>{
+    const keys = ['home','about','certifications','projects','contact'];
+    const active = document.querySelector('nav a.active');
+    let idx = Array.from(document.querySelectorAll('nav a')).indexOf(active);
+    if (e.key === 'ArrowRight') { idx = (idx+1) % keys.length; document.querySelectorAll('nav a')[idx].click(); }
+    if (e.key === 'ArrowLeft') { idx = (idx-1 + keys.length) % keys.length; document.querySelectorAll('nav a')[idx].click(); }
+  });
+})();
+</script>
 </body>
 </html>
