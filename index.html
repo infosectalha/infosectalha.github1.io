@@ -3,213 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Talha | SOC Analyst Portfolio</title>
+  <title>Muhammad Talha | SOC Analyst L1</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    /* ====== Base Styles ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: #f2f4f8;
-      background: radial-gradient(circle at top, #0a1a2f, #020a13);
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    canvas#matrix-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.25;
-    }
-
-    header {
-      text-align: center;
-      padding: 80px 20px 40px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 3px solid #00bfff;
-      object-fit: cover;
-      box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .profile-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(0, 191, 255, 0.6);
-    }
-
-    h1 {
-      font-size: 2.5em;
-      color: #00bfff;
-      margin-top: 20px;
-    }
-
-    h2 {
-      font-size: 1.2em;
-      color: #a6b8d4;
-      margin-bottom: 10px;
-    }
-
-    .section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 20px 30px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
-      position: relative;
-      z-index: 1;
-      transition: transform 0.3s ease;
-    }
-
-    .section:hover {
-      transform: translateY(-5px);
-    }
-
-    .section h3 {
-      color: #00bfff;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #00bfff;
-      display: inline-block;
-      padding-bottom: 5px;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.6;
+      background-image: radial-gradient(rgba(0, 100, 255, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-attachment: fixed;
     }
 
     a {
-      color: #00bfff;
+      color: #3399ff;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
 
-    footer {
+    h1, h2 {
+      color: #3399ff;
+      text-shadow: 0 0 10px #005bff;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+      font-size: 1.8rem;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+      background: rgba(20, 20, 20, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 255, 0.2);
+    }
+
+    /* ====== Profile Section ====== */
+    .profile-section {
       text-align: center;
-      padding: 40px 20px;
-      color: #a6b8d4;
-      font-size: 0.9em;
-      position: relative;
-      z-index: 1;
+      margin-bottom: 30px;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #3399ff;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+    }
+
+    .title {
+      color: #999;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      margin-top: 8px;
+    }
+
+    /* ====== Sections ====== */
+    section {
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin-top: 10px;
+    }
+
+    li {
+      padding: 8px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    /* ====== Contact Section ====== */
+    .contact a {
+      display: inline-block;
+      margin-right: 20px;
+      margin-top: 10px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .contact a:hover {
+      color: #66b3ff;
+    }
+
+    /* ====== Glow Effect ====== */
+    .glow {
+      color: #3399ff;
+      text-shadow: 0 0 10px #3399ff;
+    }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .profile-img {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
 <body>
-  <canvas id="matrix-bg"></canvas>
+  <div class="container">
+    <div class="profile-section">
+      <img src="profile.jpg" alt="Muhammad Talha" class="profile-img" />
+      <h1>Muhammad Talha</h1>
+      <p class="title">SOC Analyst L1</p>
+    </div>
 
-  <header>
-    <img src="https://infosectalha.github.io/profile.jpg" alt="Muhammad Talha" class="profile-img"/>
-    <h1>Muhammad Talha</h1>
-    <h2>SOC Analyst L1 | Cybersecurity Professional</h2>
-    <p>
-      <a href="mailto:infosectalha@gmail.com">infosectalha@gmail.com</a> |
-      <a href="https://linkedin.com/in/infosectalha" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/infosectalha" target="_blank">GitHub</a>
-    </p>
-  </header>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m a cybersecurity analyst focused on identifying and mitigating real-world vulnerabilities.
+        My hands-on experience in penetration testing, vulnerability assessment, and network scanning
+        has helped me complete projects using DVWA, bWAPP, Juice Shop, WebGoat, and Metasploitable.
+        I’m currently open to freelance or internship opportunities in offensive security and SOC analysis.
+      </p>
+    </section>
 
-  <section class="section">
-    <h3>About Me</h3>
-    <p>
-      I'm a cybersecurity analyst dedicated to identifying, analyzing, and mitigating real-world vulnerabilities.
-      I’ve gained hands-on experience in penetration testing, vulnerability assessment, and network scanning through
-      practical projects using environments such as DVWA, bWAPP, OWASP Juice Shop, WebGoat, and Metasploitable.
-      My areas of interest include offensive security and SOC analysis, and I’m currently open to freelance and internship
-      opportunities that allow me to strengthen cybersecurity operations and contribute to digital defense strategies.
-    </p>
-  </section>
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Identify and Prevent Phishing Attacks Before They Harm You (Udemy)</li>
+        <li>Linux Fundamentals 100 (TCM Security)</li>
+        <li>Certificate of SOC Analyst Internship (Cyborts)</li>
+        <li>Vulnerability Assessment and Pentesting (VAPT) (Udemy)</li>
+        <li>ISCS Candidate Certificate</li>
+        <li>Data Analytics (UniAthena)</li>
+        <li>Fundamentals of Dark Web (SOCRadar)</li>
+        <li>Mastering Vulnerability Assessment (Tech Hierarchy)</li>
+        <li>Cybersecurity Badge (Test.io)</li>
+        <li>Basics of Python (UniAthena)</li>
+        <li>Google Soft Skills Program (PAFLA)</li>
+        <li>Master ChatGPT (UniAthena)</li>
+        <li>Opswat Introduction to Critical Infrastructure Protection (ICIP) (Opswat)</li>
+        <li>Complete Windows Password Cracking Course | Practical Guide (Udemy)</li>
+      </ul>
+    </section>
 
-  <section class="section">
-    <h3>Certifications</h3>
-    <ul>
-      <li>Identify and Prevent Phishing Attacks Before They Harm You – Udemy</li>
-      <li>Linux Fundamentals 100 – TCM Security</li>
-      <li>SOC Analyst Internship – Cyborts</li>
-      <li>Vulnerability Assessment and Pentesting (VAPT) – Udemy</li>
-      <li>ISCS Candidate Certificate</li>
-      <li>Data Analytics – Uniathena</li>
-      <li>Fundamentals of Dark Web – SOCRadar</li>
-      <li>Mastering Vulnerability Assessment – Tech Hierarchy</li>
-      <li>Cybersecurity Badge – Test.io</li>
-      <li>Basics of Python – Uniathena</li>
-      <li>Google Soft Skills Program – PAFLA</li>
-      <li>Master ChatGPT – Uniathena</li>
-      <li>OPSWAT Introduction to Critical Infrastructure Protection (ICIP) – OPSWAT</li>
-      <li>Complete Windows Password Cracking Course | Practical Guide – Udemy</li>
-      <li>Careers in Cybersecurity – Tech Hierarchy</li>
-      <li>Freelancing and Tech Careers Session – Tech Hierarchy</li>
-      <li>Interview Essentials – Tech Hierarchy</li>
-      <li>Event Host – Freelancing and Tech Careers Session – Tech Hierarchy</li>
-      <li>Event Host – DevOps Essentials – Tech Hierarchy</li>
-    </ul>
-  </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>MITRE ATT&CK Framework</li>
+        <li>Web Application Vulnerability Assessment (bWAPP)</li>
+        <li>Web Application Vulnerability Assessment (DVWA)</li>
+        <li>Cryptography and Secret Retrieval - Docker Lab</li>
+        <li>Advanced Vulnerability Assessment (OWASP Juice Shop)</li>
+        <li>Network Vulnerability Assessment - Metasploitable with Nessus</li>
+      </ul>
+    </section>
 
-  <section class="section">
-    <h3>Projects</h3>
-    <ul>
-      <li>MITRE ATT&CK</li>
-      <li>Web Application Vulnerability Assessment (bWAPP)</li>
-      <li>Web Application Vulnerability Assessment (DVWA)</li>
-      <li>Cryptography and Secret Retrieval – Docker Lab</li>
-      <li>Advanced Vulnerability Assessment (OWASP Juice Shop)</li>
-      <li>Network Vulnerability Assessment – Metasploitable with Nessus</li>
-    </ul>
-  </section>
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li>SOC Analyst Intern – Cyborts (1 month)</li>
+        <li>Associate Project Manager Intern – Excelerate (1 month)</li>
+        <li>Receptionist Intern – American Lyceum School (1 month)</li>
+      </ul>
+    </section>
 
-  <section class="section">
-    <h3>Contact</h3>
-    <p>
-      📧 <a href="mailto:infosectalha@gmail.com">infosectalha@gmail.com</a><br>
-      🔗 <a href="https://linkedin.com/in/infosectalha" target="_blank">linkedin.com/in/infosectalha</a><br>
-      💻 <a href="https://github.com/infosectalha" target="_blank">github.com/infosectalha</a>
-    </p>
-  </section>
-
-  <footer>
-    © 2025 Muhammad Talha — Built with 💻 & ☕ for Cybersecurity Excellence
-  </footer>
-
-  <script>
-    // Matrix background animation
-    const canvas = document.getElementById('matrix-bg');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const letters = "01".split("");
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array.from({ length: columns }).fill(1);
-
-    function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#00bfff";
-      ctx.font = fontSize + "px monospace";
-
-      drops.forEach((y, index) => {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, index * fontSize, y * fontSize);
-        if (y * fontSize > canvas.height && Math.random() > 0.975) drops[index] = 0;
-        drops[index]++;
-      });
-    }
-
-    setInterval(draw, 50);
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      <a href="mailto:infosectalha@gmail.com">📧 infosectalha@gmail.com</a>
+      <a href="https://www.linkedin.com/in/infosectalha" target="_blank">💼 LinkedIn</a>
+      <a href="https://github.com/infosectalha" target="_blank">💻 GitHub</a>
+    </section>
+  </div>
 </body>
 </html>
