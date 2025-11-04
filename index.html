@@ -1,202 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Muhammad Talha | SOC Analyst L1</title>
-<style>
-  /* ==== Global Theme ==== */
-  body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: #000;
-    color: #e0e0e0;
-    overflow-x: hidden;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Talha | SOC Analyst L1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==== Global Theme ==== */
+    :root {
+      --primary-color: #00bfff; /* Deep sky blue for cyber feel */
+      --secondary-color: #20c997; /* Teal accent */
+      --bg-color: #0a192f; /* Dark navy background */
+      --text-color: #ccd6f6;
+      --accent-color: #64ffda;
+      --shadow-color: rgba(0, 191, 255, 0.2);
+    }
 
-  h1, h2, h3 {
-    color: #2196f3; /* blue headings */
-    text-transform: uppercase;
-  }
+    body {
+      margin: 0;
+      font-family: 'Roboto Mono', monospace;
+      background: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-  a {
-    color: #2196f3;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+    h1, h2, h3 {
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-  /* ==== Background Animation ==== */
-  .background {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
-    overflow: hidden;
-    z-index: -1;
-  }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
 
-  .node {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #2196f3;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: float 12s linear infinite;
-  }
+    /* ==== Background Animation ==== */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--bg-color) 0%, #020e26 100%);
+      overflow: hidden;
+      z-index: -1;
+    }
 
-  @keyframes float {
-    0% { transform: translateY(0) translateX(0); opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { transform: translateY(100vh) translateX(20vw); opacity: 0.2; }
-  }
+    .node {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: pulse-float 15s ease-in-out infinite;
+      box-shadow: 0 0 10px var(--shadow-color);
+    }
 
-  /* ==== Layout ==== */
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 20px;
-    position: relative;
-    z-index: 1;
-  }
+    @keyframes pulse-float {
+      0% { transform: translateY(0) scale(1); opacity: 0.4; }
+      50% { transform: translateY(50vh) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(100vh) scale(1); opacity: 0.2; }
+    }
 
-  .profile {
-    text-align: center;
-  }
+    /* More nodes for denser cyber network feel */
+    .node:nth-child(1) { top: 5%; left: 15%; animation-delay: 0s; }
+    .node:nth-child(2) { top: 25%; left: 65%; animation-delay: 3s; }
+    .node:nth-child(3) { top: 45%; left: 35%; animation-delay: 6s; }
+    .node:nth-child(4) { top: 75%; left: 5%; animation-delay: 9s; }
+    .node:nth-child(5) { top: 15%; left: 85%; animation-delay: 12s; }
+    .node:nth-child(6) { top: 35%; left: 50%; animation-delay: 1s; }
+    .node:nth-child(7) { top: 55%; left: 20%; animation-delay: 4s; }
+    .node:nth-child(8) { top: 85%; left: 70%; animation-delay: 7s; }
+    .node:nth-child(9) { top: 10%; left: 40%; animation-delay: 10s; }
+    .node:nth-child(10) { top: 60%; left: 90%; animation-delay: 13s; }
 
-  .profile-img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 3px solid #2196f3;
-    object-fit: cover;
-    margin-bottom: 20px;
-  }
+    /* Subtle circuit-like lines */
+    .circuit-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        var(--shadow-color) 10px,
+        var(--shadow-color) 11px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 10px,
+        var(--shadow-color) 10px,
+        var(--shadow-color) 11px
+      );
+      opacity: 0.1;
+      animation: scan 20s linear infinite;
+    }
 
-  section {
-    margin-bottom: 60px;
-  }
+    @keyframes scan {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 100px 100px, -100px 100px; }
+    }
 
-  ul {
-    list-style: none;
-    padding: 0;
-  }
+    /* ==== Layout ==== */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 100px 30px;
+      position: relative;
+      z-index: 1;
+    }
 
-  li {
-    margin-bottom: 10px;
-  }
+    .profile {
+      text-align: center;
+      margin-bottom: 60px;
+    }
 
-  /* Contact */
-  .contact-links a {
-    display: inline-block;
-    margin-right: 15px;
-    font-weight: 500;
-  }
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid var(--primary-color);
+      object-fit: cover;
+      box-shadow: 0 0 20px var(--shadow-color);
+      transition: transform 0.3s ease;
+    }
 
-  /* Glowing lines overlay */
-  .lines::before, .lines::after {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: repeating-linear-gradient(
-      to right,
-      rgba(33,150,243,0.05) 0px,
-      rgba(33,150,243,0.05) 2px,
-      transparent 2px,
-      transparent 80px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(33,150,243,0.05) 0px,
-      rgba(33,150,243,0.05) 2px,
-      transparent 2px,
-      transparent 80px
-    );
-    animation: moveLines 30s linear infinite;
-    z-index: -2;
-  }
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
 
-  @keyframes moveLines {
-    from { transform: translate(0,0); }
-    to { transform: translate(-80px,-80px); }
-  }
+    section {
+      margin-bottom: 80px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+      box-shadow: 0 4px 15px var(--shadow-color);
+    }
 
-</style>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 15px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* Contact */
+    .contact-links {
+      text-align: center;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin: 0 20px;
+      font-weight: 500;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.8em;
+      color: #8892b0;
+    }
+  </style>
 </head>
 <body>
 
-<div class="background">
-  <!-- Random glowing nodes -->
-  <div class="node" style="top:10%; left:20%; animation-delay:0s;"></div>
-  <div class="node" style="top:30%; left:70%; animation-delay:2s;"></div>
-  <div class="node" style="top:50%; left:40%; animation-delay:4s;"></div>
-  <div class="node" style="top:80%; left:10%; animation-delay:6s;"></div>
-  <div class="node" style="top:20%; left:90%; animation-delay:8s;"></div>
-  <div class="lines"></div>
-</div>
-
-<div class="container">
-  <div class="profile">
-    <img src="profile.jpg" alt="Muhammad Talha" class="profile-img" />
-    <h1>Muhammad Talha</h1>
-    <h3>SOC Analyst L1</h3>
+  <div class="background">
+    <!-- Glowing nodes simulating data packets in a network -->
+    <div class="node"></div>
+    <div class="node"></div>
+    <div class="node"></div>
+    <div class="node"></div>
+    <div class="node"></div>
+    <div class="node"></div>
+    <div class="node"></div>
+    <div class="node"></div>
+    <div class="node"></div>
+    <div class="node"></div>
+    <div class="circuit-lines"></div>
   </div>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a cybersecurity analyst focused on identifying and mitigating real-world vulnerabilities.
-      My hands-on experience in penetration testing, vulnerability assessment, and network scanning
-      has helped me complete projects using DVWA, bWAPP, Juice Shop, WebGoat, and Metasploitable.
-      I’m open to freelance or internship opportunities in offensive security and SOC analysis.
-    </p>
-  </section>
+  <div class="container">
+    <div class="profile">
+      <img src="profile.jpg" alt="Muhammad Talha" class="profile-img" />
+      <h1>Muhammad Talha</h1>
+      <h3>SOC Analyst L1</h3>
+    </div>
 
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Identify and Prevent Phishing Attacks Before They Harm You – Udemy</li>
-      <li>Linux Fundamentals 100 – TCM Security</li>
-      <li>SOC Analyst Internship Certificate – Cyborts</li>
-      <li>Vulnerability Assessment and Penetration Testing (VAPT) – Udemy</li>
-      <li>ISCS Candidate Certificate</li>
-      <li>Data Analytics – UniAthena</li>
-      <li>Fundamentals of Dark Web – SOCRadar</li>
-      <li>Mastering Vulnerability Assessment – Tech Hierarchy</li>
-      <li>Cybersecurity Badge – Test.io</li>
-      <li>Basics of Python – UniAthena</li>
-      <li>Google Soft Skills Program – PAFLA</li>
-      <li>Master ChatGPT – UniAthena</li>
-      <li>Opswat Introduction to Critical Infrastructure Protection (ICIP) – Opswat</li>
-      <li>Complete Windows Password Cracking Course – Udemy</li>
-    </ul>
-  </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a cybersecurity analyst focused on identifying and mitigating real-world vulnerabilities.
+        My hands-on experience in penetration testing, vulnerability assessment, and network scanning
+        has helped me complete projects using DVWA, bWAPP, Juice Shop, WebGoat, and Metasploitable.
+        I’m open to freelance or internship opportunities in offensive security and SOC analysis.
+      </p>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>MITRE ATT&amp;CK</li>
-      <li>Web Application Vulnerability Assessment (bWAPP)</li>
-      <li>Web Application Vulnerability Assessment (DVWA)</li>
-      <li>Cryptography and Secret Retrieval – Docker Lab</li>
-      <li>Advanced Vulnerability Assessment (OWASP Juice Shop)</li>
-      <li>Network Vulnerability Assessment – Metasploitable with Nessus</li>
-    </ul>
-  </section>
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Identify and Prevent Phishing Attacks Before They Harm You – Udemy</li>
+        <li>Linux Fundamentals 100 – TCM Security</li>
+        <li>SOC Analyst Internship Certificate – Cyborts</li>
+        <li>Vulnerability Assessment and Penetration Testing (VAPT) – Udemy</li>
+        <li>ISCS Candidate Certificate</li>
+        <li>Data Analytics – UniAthena</li>
+        <li>Fundamentals of Dark Web – SOCRadar</li>
+        <li>Mastering Vulnerability Assessment – Tech Hierarchy</li>
+        <li>Cybersecurity Badge – Test.io</li>
+        <li>Basics of Python – UniAthena</li>
+        <li>Google Soft Skills Program – PAFLA</li>
+        <li>Master ChatGPT – UniAthena</li>
+        <li>Opswat Introduction to Critical Infrastructure Protection (ICIP) – Opswat</li>
+        <li>Complete Windows Password Cracking Course – Udemy</li>
+      </ul>
+    </section>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p class="contact-links">
-      📧 <a href="mailto:infosectalha@gmail.com">infosectalha@gmail.com</a><br/>
-      💼 <a href="https://www.linkedin.com/in/infosectalha" target="_blank">LinkedIn</a><br/>
-      💻 <a href="https://github.com/infosectalha" target="_blank">GitHub</a>
-    </p>
-  </section>
-</div>
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>MITRE ATT&amp;CK</li>
+        <li>Web Application Vulnerability Assessment (bWAPP)</li>
+        <li>Web Application Vulnerability Assessment (DVWA)</li>
+        <li>Cryptography and Secret Retrieval – Docker Lab</li>
+        <li>Advanced Vulnerability Assessment (OWASP Juice Shop)</li>
+        <li>Network Vulnerability Assessment – Metasploitable with Nessus</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p class="contact-links">
+        📧 <a href="mailto:infosectalha@gmail.com">infosectalha@gmail.com</a>
+        💼 <a href="https://www.linkedin.com/in/infosectalha" target="_blank">LinkedIn</a>
+        💻 <a href="https://github.com/infosectalha" target="_blank">GitHub</a>
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Muhammad Talha. All rights reserved.
+  </footer>
 
 </body>
 </html>
