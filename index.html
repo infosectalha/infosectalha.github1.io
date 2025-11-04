@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talha Sheikh | Cybersecurity Portfolio</title>
+  <title>Muhammad Talha | SOC Analyst Portfolio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -16,7 +16,6 @@
       position: relative;
     }
 
-    /* Matrix background effect */
     canvas#matrix-bg {
       position: fixed;
       top: 0;
@@ -24,7 +23,7 @@
       z-index: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.2;
+      opacity: 0.25;
     }
 
     header {
@@ -41,6 +40,12 @@
       border: 3px solid #00bfff;
       object-fit: cover;
       box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(0, 191, 255, 0.6);
     }
 
     h1 {
@@ -58,12 +63,17 @@
     .section {
       max-width: 900px;
       margin: 60px auto;
-      padding: 20px;
+      padding: 20px 30px;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
       position: relative;
       z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
     }
 
     .section h3 {
@@ -95,11 +105,11 @@
 </head>
 <body>
   <canvas id="matrix-bg"></canvas>
-  
+
   <header>
-    <img src="profile.jpg" alt="Talha Sheikh" class="profile-img" />
-    <h1>Talha Sheikh</h1>
-    <h2>Cybersecurity Enthusiast | SOC Analyst (in training)</h2>
+    <img src="profile.jpg" alt="Muhammad Talha" class="profile-img" />
+    <h1>Muhammad Talha</h1>
+    <h2>SOC Analyst L1 | Cybersecurity Professional</h2>
     <p>
       <a href="mailto:infosectalha@gmail.com">infosectalha@gmail.com</a> |
       <a href="https://linkedin.com/in/infosectalha" target="_blank">LinkedIn</a> |
@@ -110,39 +120,62 @@
   <section class="section">
     <h3>About Me</h3>
     <p>
-      I'm an aspiring cybersecurity professional with hands-on experience in Kali Linux, Ubuntu, Docker, Nessus, Metasploit, Burp Suite, bWAPP, Nmap, Nikto, Gobuster, and Wazuh.
-      I focus on threat analysis, vulnerability assessment, and SOC operations.
+      I'm a cybersecurity analyst dedicated to identifying, analyzing, and mitigating real-world vulnerabilities.
+      I’ve gained hands-on experience in penetration testing, vulnerability assessment, and network scanning through
+      practical projects using environments such as DVWA, bWAPP, OWASP Juice Shop, WebGoat, and Metasploitable.
+      My areas of interest include offensive security and SOC analysis, and I’m currently open to freelance and internship
+      opportunities that allow me to strengthen cybersecurity operations and contribute to digital defense strategies.
     </p>
   </section>
 
   <section class="section">
     <h3>Certifications</h3>
     <ul>
-      <li>Ethical Hacking Essentials – EC-Council (2024)</li>
-      <li>Cybersecurity Fundamentals – IBM SkillsBuild (2024)</li>
-      <li>Introduction to Information Security – Alison (2024)</li>
-      <li>Security Awareness Training – Test.io (2024)</li>
-      <!-- You can add more later -->
+      <li>Identify and Prevent Phishing Attacks Before They Harm You – Udemy</li>
+      <li>Linux Fundamentals 100 – TCM Security</li>
+      <li>SOC Analyst Internship – Cyborts</li>
+      <li>Vulnerability Assessment and Pentesting (VAPT) – Udemy</li>
+      <li>ISCS Candidate Certificate</li>
+      <li>Data Analytics – Uniathena</li>
+      <li>Fundamentals of Dark Web – SOCRadar</li>
+      <li>Mastering Vulnerability Assessment – Tech Hierarchy</li>
+      <li>Cybersecurity Badge – Test.io</li>
+      <li>Basics of Python – Uniathena</li>
+      <li>Google Soft Skills Program – PAFLA</li>
+      <li>Master ChatGPT – Uniathena</li>
+      <li>OPSWAT Introduction to Critical Infrastructure Protection (ICIP) – OPSWAT</li>
+      <li>Complete Windows Password Cracking Course | Practical Guide – Udemy</li>
+      <li>Careers in Cybersecurity – Tech Hierarchy</li>
+      <li>Freelancing and Tech Careers Session – Tech Hierarchy</li>
+      <li>Interview Essentials – Tech Hierarchy</li>
+      <li>Event Host – Freelancing and Tech Careers Session – Tech Hierarchy</li>
+      <li>Event Host – DevOps Essentials – Tech Hierarchy</li>
     </ul>
   </section>
 
   <section class="section">
     <h3>Projects</h3>
     <ul>
-      <li><a href="#">SOC Simulation with Wazuh – Notes & Report</a></li>
-      <li><a href="#">Vulnerability Scanning Lab – Nessus & Nmap</a></li>
-      <li><a href="#">Web App Pentest on bWAPP using BurpSuite</a></li>
-      <li><a href="#">Docker-based Pentesting Environment Setup</a></li>
+      <li>MITRE ATT&CK</li>
+      <li>Web Application Vulnerability Assessment (bWAPP)</li>
+      <li>Web Application Vulnerability Assessment (DVWA)</li>
+      <li>Cryptography and Secret Retrieval – Docker Lab</li>
+      <li>Advanced Vulnerability Assessment (OWASP Juice Shop)</li>
+      <li>Network Vulnerability Assessment – Metasploitable with Nessus</li>
     </ul>
   </section>
 
   <section class="section">
     <h3>Contact</h3>
-    <p>If you'd like to collaborate or discuss cybersecurity opportunities, feel free to reach out at <a href="mailto:infosectalha@gmail.com">infosectalha@gmail.com</a>.</p>
+    <p>
+      📧 <a href="mailto:infosectalha@gmail.com">infosectalha@gmail.com</a><br>
+      🔗 <a href="https://linkedin.com/in/infosectalha" target="_blank">linkedin.com/in/infosectalha</a><br>
+      💻 <a href="https://github.com/infosectalha" target="_blank">github.com/infosectalha</a>
+    </p>
   </section>
 
   <footer>
-    © 2025 Talha Sheikh — Built with 💻 & ☕ for Cybersecurity Excellence
+    © 2025 Muhammad Talha — Built with 💻 & ☕ for Cybersecurity Excellence
   </footer>
 
   <script>
@@ -171,7 +204,12 @@
       });
     }
 
-    setInterval(draw, 33);
+    setInterval(draw, 50);
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
   </script>
 </body>
 </html>
