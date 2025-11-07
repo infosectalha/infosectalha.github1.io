@@ -1,158 +1,132 @@
-/* General Styles */
-body {
+* {
   margin: 0;
-  font-family: "Poppins", sans-serif;
-  background-color: #0d1117;
-  color: #e6edf3;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Consolas", monospace;
+}
+
+body {
+  color: #fff;
   overflow-x: hidden;
 }
 
-/* Matrix Background */
-canvas#matrixBackground {
+#matrixBackground {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* behind content */
-  background-color: #0d1117;
+  z-index: -1;
 }
 
-/* Header / Navigation */
 header {
-  background-color: rgba(13,17,23,0.9);
-  padding: 15px 25px;
-  border-bottom: 2px solid #00ff99;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  text-align: center;
+  padding: 20px;
 }
 
-.logo {
-  color: #00ff99;
-  font-size: 26px;
-  font-weight: 700;
+.name-highlight {
+  color: #00aaff; /* Your preferred blue */
+  font-size: 2.2em;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-links {
+nav ul {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
 }
 
-.nav-links li {
-  margin: 0 12px;
-}
-
-.nav-links a {
+nav ul li a {
   text-decoration: none;
-  color: #e6edf3;
-  font-weight: 500;
-  transition: 0.3s;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: #00ff99;
+nav ul li a:hover,
+nav ul li a.active {
+  color: #00aaff;
 }
 
-.menu-toggle {
+.section {
   display: none;
-  font-size: 26px;
-  cursor: pointer;
-  color: #e6edf3;
+  text-align: center;
+  padding: 60px 20px;
 }
 
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 100px 20px;
+.section.active {
+  display: block;
 }
 
 .profile-pic {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%; /* circular image */
-  border: 3px solid #00ff99;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid #00aaff;
   margin-bottom: 20px;
 }
 
-.btn {
+.resume-btn {
   display: inline-block;
-  padding: 12px 24px;
-  background-color: #00ff99;
-  color: #0d1117;
+  background: #00aaff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 15px;
   text-decoration: none;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
-.btn:hover {
-  background-color: #00cc7a;
+.resume-btn:hover {
+  background: #008ecc;
 }
 
-footer {
-  background-color: rgba(13,17,23,0.9);
-  padding: 15px 0;
-  text-align: center;
-  border-top: 1px solid #00ff99;
-  margin-top: 50px;
-}
-
-/* Mobile Menu */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: rgba(13,17,23,0.95);
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links li {
-    margin: 15px 0;
-  }
-}
-
-/* Projects Section */
-.projects-grid {
+.project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+}
+
+.project-card {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #00aaff;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.cert-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cert-list li {
+  background: rgba(0, 0, 0, 0.5);
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  width: fit-content;
+  border: 1px solid #00aaff;
+}
+
+.contact-info {
+  list-style: none;
+  text-align: center;
   margin-top: 20px;
 }
 
-.proj {
-  background-color: rgba(0,0,0,0.6);
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.proj-links a {
-  color: #00ff99;
+.contact-info a {
+  color: #00aaff;
   text-decoration: none;
-  margin-right: 10px;
 }
 
-.proj-links a:hover {
-  text-decoration: underline;
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 15px;
+  font-size: 0.9em;
+  background: rgba(0, 0, 0, 0.5);
 }
