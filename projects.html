@@ -1,48 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects — Muhammad Talha</title>
-  <meta name="description" content="Projects by Muhammad Talha — MITRE ATT&CK, bWAPP, DVWA, Juice Shop, Metasploitable." />
-  <link rel="stylesheet" href="assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Muhammad Talha</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
-
 <body>
   <canvas id="matrixBackground"></canvas>
 
   <header>
-    <nav class="navbar">
-      <div class="logo">Muhammad Talha</div>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="certifications.html">Certifications</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <h1><span class="highlight">Muhammad Talha</span></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/certifications">Certifications</a>
+      <a href="/projects" class="active">Projects</a>
+      <a href="/contact">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="panel">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="proj"><strong>MITRE ATT&CK</strong><p>Custom detection rules and playbook.</p><div class="proj-links"><a href="images/mitre.jpg" target="_blank">Image</a> | <a href="pdfs/mitre.pdf" target="_blank">Report</a></div></div>
-        <div class="proj"><strong>bWAPP</strong><p>Full scan, exploit demo, remediation steps.</p><div class="proj-links"><a href="images/bwapp.jpg" target="_blank">Image</a> | <a href="pdfs/bwapp.pdf" target="_blank">Report</a></div></div>
-        <div class="proj"><strong>DVWA</strong><p>SQLi, XSS, CSRF, file-upload bypasses.</p><div class="proj-links"><a href="images/dvwa.jpg" target="_blank">Image</a> | <a href="pdfs/dvwa.pdf" target="_blank">Report</a></div></div>
-        <div class="proj"><strong>Docker Lab</strong><p>Container escape, secret extraction.</p><div class="proj-links"><a href="images/docker.jpg" target="_blank">Image</a> | <a href="pdfs/docker.pdf" target="_blank">Report</a></div></div>
-        <div class="proj"><strong>OWASP Juice Shop</strong><p>Zero-day style challenges.</p><div class="proj-links"><a href="images/juiceshop.jpg" target="_blank">Image</a> | <a href="pdfs/juiceshop.pdf" target="_blank">Report</a></div></div>
-        <div class="proj"><strong>Metasploitable</strong><p>Network discovery, vulnerability prioritization.</p><div class="proj-links"><a href="images/metasploitable.jpg" target="_blank">Image</a> | <a href="pdfs/metasploitable.pdf" target="_blank">Report</a></div></div>
+  <main class="content">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Network Vulnerability Scanner</h3>
+        <p>A Python tool that identifies open ports and vulnerabilities in local networks.</p>
       </div>
-    </section>
+      <div class="project-card">
+        <h3>Password Strength Analyzer</h3>
+        <p>Analyzes password security using entropy and common patterns.</p>
+      </div>
+    </div>
   </main>
 
-  <footer>
-    <p>© 2025 Muhammad Talha — Securing the Digital Future</p>
-  </footer>
-
-  <script src="assets/main.js" defer></script>
+  <footer>© 2025 Muhammad Talha | Securing the Digital Future</footer>
+  <script src="assets/main.js"></script>
 </body>
 </html>
