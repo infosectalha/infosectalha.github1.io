@@ -166,6 +166,7 @@ ul {
     text-align: center;
     border-radius: 5px;
     transition: all 0.3s ease;
+    cursor: pointer; /* Added for forms */
 }
 
 .btn:hover {
@@ -276,6 +277,37 @@ ul {
     margin: 0;
 }
 
+/* NEW: Contact Form Styles */
+.contact-form {
+    max-width: 700px;
+    margin: 2rem auto;
+    text-align: left;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--header-color);
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: #ffffff;
+    box-shadow: var(--shadow);
+}
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
 /* --- 7. Project & Certificate Pages --- */
 .page-header {
     text-align: center;
@@ -351,13 +383,12 @@ ul {
 
     .hero {
         flex-direction: column-reverse;
-        /* REMOVED text-align: center; */
         padding-top: 2rem;
+        align-items: flex-start; /* <<< THIS IS THE FIX. Aligns all items left. */
     }
-
-    .hero-image {
-        justify-content: flex-start; /* ADDED: Aligns image to the left */
-    }
+    
+    /* This rule is no longer needed */
+    /* .hero-image { } */
 
     .profile-pic {
         width: 180px;
@@ -366,6 +397,6 @@ ul {
     }
 
     .cta-buttons {
-        justify-content: flex-start; /* CHANGED: Aligns buttons to the left */
+        justify-content: flex-start; /* Aligns buttons to the left */
     }
 }
