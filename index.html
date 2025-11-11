@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://formspree.io; style-src 'self'; img-src 'self';">
 
     <title>Muhammad Talha - Cybersecurity Portfolio</title>
     
@@ -149,6 +149,20 @@
         <div class="container">
             <h2>Contact Me</h2>
             <p>I'm available for new opportunities. Let's connect.</p>
+            
+            <form class="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="_replyto" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
             <div class="contact-links">
                 <a href="https://www.linkedin.com/in/infosectalha" target="_blank" class="btn">LinkedIn</a>
                 <a href="https://github.com/infosectalha" target="_blank" class="btn">GitHub</a>
