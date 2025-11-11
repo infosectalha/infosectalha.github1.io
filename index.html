@@ -1,35 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Official portfolio of Muhammad Talha — Cybersecurity Professional & Ethical Hacker.">
-  <title>Muhammad Talha | Cybersecurity Portfolio</title>
-  <link rel="stylesheet" href="assets/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self';">
+
+    <title>Muhammad Talha - Cybersecurity Portfolio</title>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <canvas id="matrixBackground"></canvas>
+    <div class="matrix-bg"></div>
 
-  <header>
-    <h1><span class="highlight">Muhammad Talha</span></h1>
-    <nav>
-      <a href="/" class="active">Home</a>
-      <a href="/about">About</a>
-      <a href="/certifications">Certifications</a>
-      <a href="/projects">Projects</a>
-      <a href="/contact">Contact</a>
-    </nav>
-  </header>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Talha<span>.sec</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">./home</a></li>
+                    <li><a href="projects.html">./projects</a></li>
+                    <li><a href="certifications.html">./certs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main class="content">
-    <img src="profile.jpg" alt="Muhammad Talha" class="profile-pic">
-    <h2>Cybersecurity Professional & Ethical Hacker</h2>
-    <p>Specializing in vulnerability analysis, ethical hacking, and information security. Passionate about building trust in the digital space.</p>
-    <a href="Muhammad Talha Resume.pdf" class="resume-btn" download>Download Professional Resume</a>
-  </main>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-text">
+                    <p class="subtitle">> INIT: MUHAMMAD TALHA</p>
+                    <h1>Cybersecurity Practitioner | Vulnerability Assessment | Threat Analysis</h1>
+                    <p>I am a cybersecurity practitioner with hands-on experience in ethical hacking and vulnerability assessment. I build and secure virtual lab environments to identify, analyze, and report security flaws in web applications and systems. My applied toolkit includes <strong>Nmap, Burp Suite, Metasploit, and Nessus.</strong></p>
+                    <p>My project experience is centered on applying the <strong>OWASP Top 10</strong> framework. This includes manually testing insecure applications like DVWA, identifying both client-side and server-side vectors, and developing professional assessment reports with clear proof-of-concept documentation. My background in beta testing on Test.io provided me with a strong foundation in process-oriented risk analysis.</p>
+                    <p>I am actively seeking opportunities to apply my skills in a <strong>SOC environment</strong> or through collaborative freelance projects. I am available to discuss infosec, bug hunting, and security testing collaborations.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="assets/documents/Muhammad_Talha_Resume.pdf" class="btn btn-primary" download>Download Resume.pdf</a>
+                        <a href="#contact" class="btn">Contact_Me()</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/images/profile.jpg" alt="Muhammad Talha Profile Picture" class="profile-pic">
+                </div>
+            </div>
+        </section>
 
-  <footer>© 2025 Muhammad Talha | Securing the Digital Future</footer>
+        <section class="section">
+            <div class="container">
+                <h2>[ Technical Skills ]</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>🛡️ Defensive Security & SOC</h3>
+                        <ul>
+                            <li>SIEM (Security Information and Event Management)</li>
+                            <li>Wazuh</li>
+                            <li>IDS / IPS (Intrusion Detection/Prevention Systems)</li>
+                            <li>Log Analysis</li>
+                            <li>Incident Response</li>
+                            <li>Firewall Configuration</li>
+                            <li>Phishing & Anti-Phishing Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>⚔️ Offensive Security & VAPT</h3>
+                        <ul>
+                            <li>VAPT (Vulnerability Assessment & Penetration Testing)</li>
+                            <li>Nessus</li>
+                            <li>Web Application Security (OWASP, XSS, SQLi)</li>
+                            <li>Metasploitable</li>
+                            <li>Mimikatz</li>
+                            <li>John the Ripper</li>
+                            <li>Bug Hunting</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🔑 Core Concepts & Tools</h3>
+                        <ul>
+                            <li>Ethical Hacking</li>
+                            <li>Risk Management & Assessment</li>
+                            <li>Kali Linux</li>
+                            <li>Cryptography & OpenSSL</li>
+                            <li>CVSS Scoring</li>
+                            <li>Network Security Fundamentals</li>
+                            <li>DevOps Essentials</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <script src="assets/main.js"></script>
+        <section class="section">
+            <div class="container">
+                <h2>[ Professional Experience ]</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>SOC Analyst Intern</h4>
+                        <p class="date">Cyborts (1-Month Internship)</p>
+                        <ul>
+                            <li><strong>SIEM Deployment:</strong> Deployed and configured the Wazuh Manager and agents on multiple endpoints (Windows, Ubuntu).</li>
+                            <li><strong>Threat Detection:</strong> Enabled File Integrity Monitoring (FIM) and configured Snort IDS to forward network logs from pfSense.</li>
+                            <li><strong>Attack Simulation:</strong> Simulated brute-force SSH attacks (Hydra) and custom malware payloads (Metasploit) to validate detection rules.</li>
+                            <li><strong>Incident Analysis:</strong> Monitored and correlated real-time alerts from these attacks within the Wazuh dashboard.</li>
+                            <li><strong>Threat Intelligence:</strong> Integrated the VirusTotal API to perform hash reputation analysis and threat intelligence correlation.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Associate Project Manager Intern</h4>
+                        <p class="date">Excelerate (1-Month Internship)</p>
+                        <p>Managed the full project lifecycle, from initial strategic planning to execution. Core responsibilities included task delegation, progress tracking, and team coordination to ensure alignment with project goals.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Receptionist Intern</h4>
+                        <p class="date">American Lyceum School (1-Month Internship)</p>
+                        <p>Gained experience in administrative support and front-facing communication. Responsibilities included managing multi-line phone inquiries, assisting visitors, and organizing key office operations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>[ Education & Languages ]</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>BBA (Bachelor of Business Administration)</h4>
+                        <p class="date">NUML University, Faisalabad (In Progress)</p>
+                        <ul>
+                            <li>Elected as <strong>Class Representative (CR)</strong> for the first-semester cohort, demonstrating leadership and communication skills.</li>
+                            <li>Developing a foundational understanding of business management, strategic planning, and organizational leadership.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Languages</h4>
+                        <p><strong>English</strong> (Professional)</p>
+                        <p><strong>German</strong> (A1 - Basic)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <h2>[ Contact_Me ]</h2>
+            <p>I'm available for new opportunities. Let's connect.</p>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/infosectalha" target="_blank" class="btn">LinkedIn</a>
+                <a href="https://github.com/infosectalha" target="_blank" class="btn">GitHub</a>
+                <a href="mailto:infosectalha@gmail.com" class="btn">Email</a>
+            </div>
+            <p class="copyright">&copy; 2025 Muhammad Talha. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
