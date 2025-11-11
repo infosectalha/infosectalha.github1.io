@@ -484,20 +484,20 @@ ul {
     }
 
     .hero {
-        flex-direction: column; /* Text on top, Pic on bottom */
-        align-items: flex-start; /* <<< THE FINAL FIX: Align all items to the left */
+        flex-direction: column-reverse; /* <<< THE FINAL FIX: Pic on top, Text on bottom */
+        align-items: flex-start; /* Align all items to the left */
         text-align: left; /* Align text to the left */
         padding-top: 2rem;
     }
 
     .hero-image {
-        order: 2; /* Move image to the bottom */
-        margin-top: 2rem; 
+        /* 'order' is no longer needed */
+        margin-bottom: 2rem; 
         justify-content: flex-start; /* Align image to the left */
     }
 
     .hero-text {
-        order: 1; /* Move text to the top */
+        /* 'order' is no longer needed */
     }
 
     .profile-pic {
