@@ -369,19 +369,9 @@ ul {
 /* Contact Form Styles */
 .contact-form {
     max-width: 700px;
-    animation: fadeIn 1s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* NO animation on the form, it's inside a fade-in section */
 
 .form-group {
     margin-bottom: 1.5rem;
@@ -491,13 +481,12 @@ ul {
     }
 
     .hero-image {
-        /* 'order' is no longer needed */
         margin-bottom: 2rem; 
         justify-content: flex-start; /* Align image to the left */
     }
 
     .hero-text {
-        /* 'order' is no longer needed */
+       /* no changes needed */
     }
 
     .profile-pic {
@@ -516,4 +505,36 @@ ul {
     .footer-links {
         order: 1;
     }
+}
+
+/* --- 9. NEW: Animation Styles --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for card children */
+.grid-layout.fade-in.animate .card {
+    transition-delay: 0ms; /* Base delay */
+}
+.grid-layout.fade-in.animate .card:nth-child(2) {
+    transition-delay: 100ms;
+}
+.grid-layout.fade-in.animate .card:nth-child(3) {
+    transition-delay: 200ms;
+}
+.grid-layout.fade-in.animate .card:nth-child(4) {
+    transition-delay: 300ms;
+}
+.grid-layout.fade-in.animate .card:nth-child(5) {
+    transition-delay: 400ms;
+}
+.grid-layout.fade-in.animate .card:nth-child(6) {
+    transition-delay: 500ms;
 }
