@@ -24,13 +24,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // When it scrolls INTO view, add the animate class
-                entry.target.classList.add('animate');
-            } else {
-                // When it scrolls OUT of view, remove the class to reset it
-                entry.target.classList.remove('animate');
-            }
+            // This is the new, simpler logic.
+            // It adds 'animate' if intersecting, and removes it if not.
+            entry.target.classList.toggle('animate', entry.isIntersecting);
         });
     }, observerOptions);
 
