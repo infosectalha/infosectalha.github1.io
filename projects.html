@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Projects by Muhammad Talha, including VAPT, Mitre Att&ck analysis, and hands-on lab environments.">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://formspree.io; style-src 'self'; img-src 'self';">
+
+    <title>Projects - Muhammad Talha</title>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Muhammad Talha</a>
+            
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-button" id="mobile-menu-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>My Projects</h1>
+                <p>A collection of my hands-on lab work and security analysis.</p>
+            </div>
+        </section>
+
+        <section class="grid-layout">
+            <div class="container">
+
+                <div class="card">
+                    <img src="assets/images/mitre.jpg" alt="Mitre Att&ck Framework" class="card-image">
+                    <div class="card-content">
+                        <h3>Mitre Att&ck Framework Analysis</h3>
+                        <p>As a contributing member of a 5-person red team, I executed a simulation project based on the Mitre Att&ck framework, mapping TTPs for three distinct organizational case studies and defining mitigation strategies using SIEM and EDR solutions.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="assets/documents/mitre.pdf" target="_blank" class="btn">View Full Report (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/bwapp.jpg" alt="bWAPP Project" class="card-image">
+                    <div class="card-content">
+                        <h3>Web App VAPT (bWAPP)</h3>
+                        <p>Executed a security assessment of the bWAPP platform. I manually identified and exploited critical vulnerabilities, including HTML Injection, SQL Injection, and OS Command Injection, using tools like Nmap, Nikto, and WhatWeb.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="assets/documents/bwapp.pdf" target="_blank" class="btn">View Full Report (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/dvwa.jpg" alt="DVWA Project" class="card-image">
+                    <div class="card-content">
+                        <h3>Web App VAPT (DVWA)</h3>
+                        <p>Conducted a structured assessment against DVWA in a Kali Linux lab, focusing on OWASP Top 10 vulnerabilities like XSS, SQLi, and Insecure File Uploads. I leveraged Burp Suite and OWASP ZAP for traffic proxying and scanning.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="assets/documents/dvwa.pdf" target="_blank" class="btn">View Full Report (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/docker.jpg" alt="Docker Cryptography Lab" class="card-image">
+                    <div class="card-content">
+                        <h3>Cryptography & Secret Retrieval Lab</h3>
+                        <p>Executed cryptographic challenges within a custom Docker lab. This project involved practical crypto-analysis of Base64, XOR, RSA, AES-256-CBC, and hash functions to extract and use sensitive data for authorized decryption.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="assets/documents/docker.pdf" target="_blank" class="btn">View Full Report (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/juiceshop.jpg" alt="OWASP Juice Shop Project" class="card-image">
+                    <div class="card-content">
+                        <h3>Advanced VAPT (OWASP Juice Shop)</h3>
+                        <p>Conducted a manual security assessment of the OWASP Juice Shop. Discovered and exploited SQL Injection (login bypass), tested for XSS, and analyzed flawed access control mechanisms using Nmap, Nikto, and Firefox DevTools.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="assets/documents/juiceshop.pdf" target="_blank" class="btn">View Full Report (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/images/metasploitable.jpg" alt="Metasploitable Nessus Scan" class="card-image">
+                    <div class="card-content">
+                        <h3>Network VAPT (Metasploitable)</h3>
+                        <p>Executed a full network vulnerability audit on a Metasploitable VM. Using Nessus Essentials, I performed an authenticated scan to identify and categorize critical and high-risk vulnerabilities across its exposed services.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="assets/documents/metasploitable.pdf" target="_blank" class="btn">View Full Report (PDF)</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="contact-form-wrapper">
+                <h2>Contact Me</h2>
+                <p>I'm available for new opportunities.</p>
+                
+                <form class="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="_replyto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="footer-links">
+                <h2>Quick Links</h2>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/infosectalha" target="_blank" class="btn">LinkedIn</a>
+                    <a href="https://github.com/infosectalha" target="_blank" class="btn">GitHub</a>
+                    <a href="mailto:infosectalha@gmail.com" class="btn">Email</a>
+                </div>
+            </div>
+        </div>
+        
+        <p class="copyright">&copy; 2025 Muhammad Talha. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
