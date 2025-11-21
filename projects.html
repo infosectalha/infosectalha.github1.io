@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <meta name="description" content="Projects by Muhammad Talha, including VAPT, Mitre Att&ck analysis, and hands-on lab environments.">
-
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://formspree.io; style-src 'self'; img-src 'self';">
-
     <title>Projects - Muhammad Talha</title>
-    
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
     <header class="header">
         <div class="container">
-            <a href="index.html" class="logo">Muhammad Talha</a>
+            <a href="index.html" class="logo">
+                <img src="assets/images/profile.jpg" alt="Profile" class="header-profile-pic">
+                Muhammad Talha
+            </a>
             
             <nav class="nav-links">
                 <ul>
@@ -27,9 +26,7 @@
             </nav>
 
             <div class="mobile-menu-button" id="mobile-menu-button">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
             </div>
         </div>
     </header>
@@ -50,7 +47,7 @@
             </div>
         </section>
 
-        <section class="grid-layout">
+        <section class="grid-layout fade-in">
             <div class="container">
 
                 <div class="card">
@@ -123,12 +120,11 @@
         </section>
     </main>
 
-    <footer class="footer" id="contact">
+    <footer class="footer fade-in" id="contact">
         <div class="footer-container">
             <div class="contact-form-wrapper">
                 <h2>Contact Me</h2>
                 <p>I'm available for new opportunities.</p>
-                
                 <form class="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
                     <div class="form-group">
                         <label for="email">Your Email:</label>
@@ -143,7 +139,6 @@
                     </div>
                 </form>
             </div>
-            
             <div class="footer-links">
                 <h2>Quick Links</h2>
                 <div class="contact-links">
@@ -153,11 +148,13 @@
                 </div>
             </div>
         </div>
-        
         <p class="copyright">&copy; 2025 Muhammad Talha. All rights reserved.</p>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <div class="radar-widget">
+        <div class="radar-sweep"></div>
+    </div>
 
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
