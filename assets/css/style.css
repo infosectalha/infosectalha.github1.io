@@ -103,13 +103,12 @@ ul {
     border: 2px solid var(--primary-color);
 }
 
-/* --- NAV MENU FIX (Desktop) --- */
 .nav-links {
-    display: block; /* Reset display */
+    display: block;
 }
 
 .nav-links ul {
-    display: flex; /* This makes the list items horizontal */
+    display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -177,7 +176,7 @@ ul {
     align-items: center;
     padding: 4rem 0;
     gap: 2rem;
-    flex-direction: row; /* Desktop: Horizontal */
+    flex-direction: row;
 }
 
 .hero-text { flex: 2; }
@@ -270,7 +269,34 @@ ul {
 .form-group { margin-bottom: 1.5rem; }
 .form-group input, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 5px; }
 
-/* RADAR WIDGET */
+/* --- 8. Animations & Effects --- */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.fade-in.animate { opacity: 1; transform: translateY(0); }
+
+.card::after {
+    content: ""; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg); transition: none;
+}
+.card:hover::after { left: 150%; transition: 0.7s ease-in-out; }
+.card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.card:hover .cert-preview, .card:hover .card-image { transform: scale(1.05); }
+
+/* --- 9. Responsive Mobile --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-menu-button { display: flex; }
+    .mobile-menu { display: block; }
+    .hero { flex-direction: column-reverse; align-items: flex-start; text-align: left; padding-top: 2rem; }
+    .hero-image { margin-bottom: 2rem; justify-content: flex-start; }
+    .profile-pic { width: 180px; height: 180px; }
+    .cta-buttons { justify-content: flex-start; }
+    .footer-container { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-links { order: 1; }
+    .radar-widget { display: none !important; } /* Hide radar on mobile */
+}
+
+/* --- 10. RADAR WIDGET & DETECTIONS --- */
 .radar-widget {
     position: fixed; bottom: 25px; right: 25px; width: 80px; height: 80px;
     background: rgba(0, 123, 255, 0.05); border-radius: 50%; border: 2px solid rgba(0, 123, 255, 0.2);
@@ -287,36 +313,25 @@ ul {
 }
 @keyframes radar-sweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* --- 8. Animations & Effects --- */
-.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-.fade-in.animate { opacity: 1; transform: translateY(0); }
-
-.card::after {
-    content: ""; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg); transition: none;
+/* Threat Blips */
+.radar-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #ff3b30; /* Red Threat Color */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff3b30;
+    opacity: 0;
+    animation: blip 4s infinite;
 }
-.card:hover::after { left: 150%; transition: 0.7s ease-in-out; }
-.card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-.card:hover .cert-preview, .card:hover .card-image { transform: scale(1.05); }
 
-/* --- 9. Responsive Mobile --- */
-@media (max-width: 768px) {
-    /* Hide Desktop Nav, Show Mobile Button */
-    .nav-links { display: none; }
-    .mobile-menu-button { display: flex; }
-    .mobile-menu { display: block; }
+/* Random positions for dots */
+.radar-dot:nth-child(2) { top: 25%; right: 25%; animation-delay: 0.5s; }
+.radar-dot:nth-child(3) { bottom: 20%; left: 30%; animation-delay: 1.8s; }
+.radar-dot:nth-child(4) { top: 60%; right: 15%; animation-delay: 2.7s; }
 
-    /* Hero Layout (Mobile): Text top, Pic bottom, Aligned Left */
-    .hero { flex-direction: column-reverse; align-items: flex-start; text-align: left; padding-top: 2rem; }
-    .hero-image { margin-bottom: 2rem; justify-content: flex-start; }
-    .profile-pic { width: 180px; height: 180px; }
-    .cta-buttons { justify-content: flex-start; }
-
-    /* Footer Stack */
-    .footer-container { grid-template-columns: 1fr; gap: 2rem; }
-    .footer-links { order: 1; }
-    
-    /* HIDE RADAR ON MOBILE */
-    .radar-widget { display: none !important; }
+@keyframes blip {
+    0% { opacity: 0; transform: scale(0.5); }
+    20% { opacity: 1; transform: scale(1.5); }
+    100% { opacity: 0; transform: scale(0.5); }
 }
