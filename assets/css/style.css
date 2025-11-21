@@ -9,7 +9,7 @@
     --text-color: #333333;
     --primary-color: #007bff;
     --border-color: #eeeeee;
-    --card-bg: #f9f9f9;
+    --card-bg: #ffffff;
     --header-color: #111111;
     --shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
@@ -93,7 +93,7 @@ ul {
 }
 
 .nav-links {
-    display: flex; /* This is for DESKTOP */
+    display: flex;
 }
 
 .nav-links li {
@@ -112,7 +112,7 @@ ul {
     text-decoration: none;
 }
 
-/* Mobile Menu Button (Hamburger) */
+/* Mobile Menu Button */
 .mobile-menu-button {
     display: none;
     width: 30px;
@@ -128,15 +128,9 @@ ul {
     border-radius: 2px;
     transition: all 0.3s ease;
 }
-.mobile-menu-button.open .bar:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
-}
-.mobile-menu-button.open .bar:nth-child(2) {
-    opacity: 0;
-}
-.mobile-menu-button.open .bar:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
-}
+.mobile-menu-button.open .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+.mobile-menu-button.open .bar:nth-child(2) { opacity: 0; }
+.mobile-menu-button.open .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 
 /* Mobile Sidebar Menu */
 .mobile-menu {
@@ -153,22 +147,10 @@ ul {
     padding: 2rem;
     transition: left 0.3s ease;
 }
-.mobile-menu.open {
-    left: 0;
-}
-.mobile-menu ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column; /* This is for MOBILE sidebar */
-}
-.mobile-menu li {
-    margin-bottom: 1.5rem;
-}
-.mobile-menu a {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--header-color);
-}
+.mobile-menu.open { left: 0; }
+.mobile-menu ul { list-style: none; display: flex; flex-direction: column; }
+.mobile-menu li { margin-bottom: 1.5rem; }
+.mobile-menu a { font-size: 1.2rem; font-weight: 500; color: var(--header-color); }
 
 /* --- 3. Hero (About Me) Section --- */
 .hero {
@@ -176,27 +158,12 @@ ul {
     align-items: center;
     padding: 4rem 0;
     gap: 2rem;
-    flex-direction: row; /* DESKTOP: Text left, Pic right */
+    flex-direction: row;
 }
 
-.hero-text {
-    flex: 2;
-}
-
-.hero-text .subtitle {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+.hero-text { flex: 2; }
+.hero-text .subtitle { font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: var(--text-color); }
+.hero-image { flex: 1; display: flex; justify-content: center; align-items: center; }
 .profile-pic {
     width: 220px;
     height: 220px;
@@ -206,14 +173,8 @@ ul {
     box-shadow: var(--shadow);
 }
 
-/* --- 4. Call-to-Action Buttons --- */
-.cta-buttons {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
+/* --- 4. Buttons --- */
+.cta-buttons { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -226,373 +187,133 @@ ul {
     transition: all 0.3s ease;
     cursor: pointer;
 }
+.btn:hover { background-color: var(--primary-color); color: #fff; text-decoration: none; }
+.btn-primary { background-color: var(--primary-color); color: #fff; }
+.btn-primary:hover { background-color: transparent; color: var(--primary-color); }
 
-.btn:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    text-decoration: none;
-}
+/* --- 5. Sections & Cards --- */
+.section { padding: 2rem 0; border-bottom: 1px solid var(--border-color); }
+.grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; padding: 2rem 0; }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--primary-color);
-}
-
-/* --- 5. Content Sections (Skills, Experience, etc.) --- */
-.section {
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-/* Skills Section */
-.skills-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
-
-.skill-category {
-    background: #ffffff;
-    border: 1px solid var(--border-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-}
-
-.skill-category ul {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-.skill-category li {
-    background-color: var(--card-bg);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease; /* Transition for the hover */
-}
-
-/* Skill Hover Effect (Laptops only) */
-.skill-category li:hover {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-color: var(--primary-color);
-    cursor: default;
-}
-
-
-/* Experience & Education Section */
-.timeline {
-    margin-top: 1.5rem;
-}
-
-.timeline-item {
-    padding: 1.5rem;
-    background: #ffffff;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow);
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-item h4 {
-    margin-bottom: 0.25rem;
-    color: var(--header-color);
-}
-
-.timeline-item .date {
-    font-size: 0.9rem;
-    color: var(--primary-color);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-item p, .timeline-item ul {
-    margin-top: 0.5rem;
-    list-style-type: disc;
-    margin-left: 1.2rem;
-}
-
-/* --- 6. Footer & Contact --- */
-.footer {
-    padding: 3rem 0;
-    background-color: #ffffff;
-    border-top: 1px solid var(--border-color);
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    max-width: 1000px;
-    width: 90%;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.footer-links {
-    text-align: center;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.contact-links .btn {
-    margin: 0;
-}
-
-.copyright {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #777;
-}
-
-/* Contact Form Styles */
-.contact-form {
-    max-width: 700px;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--header-color);
-}
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 1rem;
-    background: #ffffff;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-}
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-/* --- 7. Project & Certificate Pages --- */
-.page-header {
-    text-align: center;
-    padding: 3rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.page-header h1 {
-    font-size: 3rem;
-}
-
-.grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem 0;
-}
-
+/* BASE CARD STYLE */
 .card {
-    background: #ffffff;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow);
+    transition: all 0.4s ease; /* Smoother transition for flash effect */
+    position: relative; /* Needed for flash effect */
+}
+
+.card-image { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--border-color); }
+.card-content { padding: 1.5rem; flex-grow: 1; }
+.card-footer { padding: 0 1.5rem 1.5rem; }
+
+/* --- 6. Skills (Hover Fix) --- */
+.skills-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem; }
+.skill-category { background: #ffffff; border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); }
+.skill-category ul { list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.skill-category li {
+    background-color: #f9f9f9;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
-
-.card:hover {
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    transform: translateY(-5px);
-}
-
-.card-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.card-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-}
-
-.card-content h3 {
-    margin-top: 0;
-}
-
-.card-content p {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 1rem;
-}
-
-.card-footer {
-    padding: 0 1.5rem 1.5rem;
-}
-
-/* --- 8. Responsive Design (MOBILE) --- */
-@media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
-
-    /* Hide desktop nav, show mobile button */
-    .nav-links {
-        display: none;
-    }
-    .mobile-menu-button {
-        display: flex;
-    }
-    .mobile-menu {
-        display: block;
-    }
-
-    .hero {
-        flex-direction: column-reverse; /* Pic on top, Text on bottom */
-        align-items: flex-start; /* Align all items to the left */
-        text-align: left; /* Align text to the left */
-        padding-top: 2rem;
-    }
-
-    .hero-image {
-        margin-bottom: 2rem; 
-        justify-content: flex-start; /* Align image to the left */
-    }
-    
-    .profile-pic {
-        width: 180px; 
-        height: 180px;
-    }
-
-    .cta-buttons {
-        justify-content: flex-start; /* Align buttons to the left */
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .footer-links {
-        order: 1;
+/* Only hover on devices that support hover (Laptops) */
+@media (hover: hover) {
+    .skill-category li:hover {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        border-color: var(--primary-color);
     }
 }
 
-/* --- 9. Animation Styles --- */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
+/* --- 7. Footer & Radar --- */
+.footer { padding: 3rem 0; background-color: #ffffff; border-top: 1px solid var(--border-color); }
+.footer-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; width: 90%; max-width: 1000px; margin: 0 auto; }
+.footer-links { text-align: center; }
+.contact-links { display: flex; justify-content: center; gap: 1.5rem; }
+.copyright { text-align: center; margin-top: 2rem; color: #777; }
 
-.fade-in.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
+.contact-form { max-width: 700px; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group input, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 5px; }
 
-/* Staggered animation for card children */
-.grid-layout.fade-in.animate .card {
-    transition-delay: 0ms; /* Base delay */
-}
-.grid-layout.fade-in.animate .card:nth-child(2) {
-    transition-delay: 100ms;
-}
-.grid-layout.fade-in.animate .card:nth-child(3) {
-    transition-delay: 200ms;
-}
-.grid-layout.fade-in.animate .card:nth-child(4) {
-    transition-delay: 300ms;
-}
-.grid-layout.fade-in.animate .card:nth-child(5) {
-    transition-delay: 400ms;
-}
-.grid-layout.fade-in.animate .card:nth-child(6) {
-    transition-delay: 500ms;
-}
-
-
-/* --- 10. NEW: Radar Widget --- */
 .radar-widget {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 80px;
-    height: 80px;
-    background: rgba(0, 123, 255, 0.05); /* Faint blue bg */
-    border-radius: 50%;
-    border: 2px solid rgba(0, 123, 255, 0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
-    backdrop-filter: blur(5px);
+    position: fixed; bottom: 25px; right: 25px; width: 80px; height: 80px;
+    background: rgba(0, 123, 255, 0.05); border-radius: 50%; border: 2px solid rgba(0, 123, 255, 0.2);
+    z-index: 1000; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.2); backdrop-filter: blur(5px);
 }
-
-/* Concentric circles */
-.radar-widget::before,
-.radar-widget::after {
-    content: '';
-    position: absolute;
-    border: 1px solid rgba(0, 123, 255, 0.2);
-    width: 66%;
-    height: 66%;
-    border-radius: 50%;
-}
-
-.radar-widget::after {
-    width: 33%;
-    height: 33%;
-}
-
-/* The sweep animation */
+.radar-widget::before, .radar-widget::after { content: ''; position: absolute; border: 1px solid rgba(0, 123, 255, 0.2); border-radius: 50%; }
+.radar-widget::before { width: 66%; height: 66%; }
+.radar-widget::after { width: 33%; height: 33%; }
 .radar-sweep {
-    width: 50%;
-    height: 50%;
+    width: 50%; height: 50%; position: absolute; top: 0; left: 0;
+    background: linear-gradient(45deg, rgba(0, 123, 255, 0.4) 0%, transparent 50%);
+    transform-origin: bottom right; animation: radar-sweep 2.5s linear infinite;
+}
+@keyframes radar-sweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* --- 8. Animations --- */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.fade-in.animate { opacity: 1; transform: translateY(0); }
+
+/* --- 9. Responsive Mobile --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-menu-button { display: flex; }
+    .mobile-menu { display: block; }
+    .hero { flex-direction: column-reverse; align-items: flex-start; text-align: left; padding-top: 2rem; }
+    .hero-image { margin-bottom: 2rem; justify-content: flex-start; }
+    .profile-pic { width: 180px; height: 180px; }
+    .cta-buttons { justify-content: flex-start; }
+    .footer-container { grid-template-columns: 1fr; }
+    .footer-links { order: 1; }
+    .radar-widget { display: none; } /* Hide radar on mobile */
+}
+
+/* --- 10. NEW: CERTIFICATE IMAGE STYLING --- */
+/* This ensures the images fit nicely inside the cards */
+.cert-preview {
+    width: 100%;
+    height: 220px; /* Fixed height for consistency */
+    object-fit: cover; /* Crops image nicely to fill box */
+    object-position: center;
+    border-bottom: 1px solid var(--border-color);
+    transition: transform 0.5s ease;
+}
+
+/* --- 11. NEW: FLASH CARD EFFECTS --- */
+/* The "Flash" Shine Effect */
+.card::after {
+    content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    background: linear-gradient(45deg, rgba(0, 123, 255, 0.4) 0%, transparent 50%);
-    transform-origin: bottom right;
-    animation: radar-sweep 2.5s linear infinite;
-    overflow: hidden; /* Fixes small bleed-over */
+    left: -150%; /* Start far left */
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: none; /* Reset */
 }
 
-@keyframes radar-sweep {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.card:hover::after {
+    left: 150%; /* Move to far right */
+    transition: 0.7s ease-in-out; /* Speed of the flash */
 }
 
-/* Hide radar on small screens where it's too intrusive */
-@media (max-width: 768px) {
-    .radar-widget {
-        display: none;
-    }
+/* Card Lift & Image Zoom */
+.card:hover {
+    transform: translateY(-10px); /* Lift up */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Stronger shadow */
+}
+
+.card:hover .cert-preview {
+    transform: scale(1.05); /* Slight zoom on the image */
 }
